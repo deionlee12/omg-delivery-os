@@ -29,7 +29,6 @@ html { scroll-behavior:smooth; }
 body { font-family:var(--sans); font-size:14px; line-height:1.6;
   color:var(--fg); background:var(--bg); -webkit-font-smoothing:antialiased; }
 
-/* COVER */
 .cover { background:var(--navy-900); color:#fff; padding:56px 48px 48px;
   position:relative; overflow:hidden; page-break-after:always; }
 .cover::before { content:''; position:absolute; right:-60px; top:-80px;
@@ -38,8 +37,7 @@ body { font-family:var(--sans); font-size:14px; line-height:1.6;
   pointer-events:none; }
 .cover-logo { margin-bottom:44px; display:flex; align-items:center; gap:16px; }
 .cover h1 { font-size:clamp(24px,3.2vw,38px); font-weight:700;
-  letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px;
-  max-width:100%; word-break:break-word; }
+  letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; max-width:100%; word-break:break-word; }
 .cover h1 em { color:var(--orange); font-style:normal; }
 .cover-sub { font-size:15px; color:rgba(255,255,255,0.65); margin-top:10px; max-width:640px; line-height:1.6; }
 .cover-meta { display:grid; grid-template-columns:repeat(3,1fr); gap:20px 24px;
@@ -50,7 +48,6 @@ body { font-family:var(--sans); font-size:14px; line-height:1.6;
 .cover-confidential { margin-top:28px; font-family:var(--mono); font-size:10px;
   letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
 
-/* NAV */
 .toc-nav { background:var(--navy-800); border-bottom:2px solid var(--orange);
   position:sticky; top:0; z-index:100; padding:0 28px;
   display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
@@ -63,11 +60,9 @@ body { font-family:var(--sans); font-size:14px; line-height:1.6;
 .nav-logo { display:flex; align-items:center; padding:6px 16px 6px 0; flex-shrink:0; }
 .nav-divider { width:1px; background:rgba(255,255,255,0.15); align-self:stretch; margin:8px 8px; }
 
-/* LAYOUT */
 .main { max-width:var(--maxw); margin:0 auto; padding:48px 32px 80px; }
 @media (max-width:600px) { .main { padding:28px 16px 60px; } }
 
-/* SECTION */
 .section-header { display:flex; align-items:baseline; gap:12px;
   margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--rule); }
 .section-num { font-family:var(--mono); font-size:11px; font-weight:500;
@@ -77,7 +72,16 @@ section { margin-bottom:52px; }
 .subsection-title { font-size:15px; font-weight:700; color:var(--navy-800);
   margin:28px 0 12px; padding-bottom:8px; border-bottom:1px solid var(--rule); }
 
-/* DISPOSITION LEGEND */
+.alkami-context-banner {
+  background:#f0f7f6; border:1px solid #b8e0dc; border-left:4px solid var(--teal-600);
+  border-radius:0 var(--radius) var(--radius) 0; padding:16px 20px; margin-bottom:28px;
+}
+.alkami-context-banner .acb-label {
+  font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--teal-600); margin-bottom:8px; display:block;
+}
+.alkami-context-banner p { font-size:13.5px; color:var(--fg-2); line-height:1.7; }
+
 .disposition-legend { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-bottom:28px; }
 .disp-card { border-radius:var(--radius-sm); padding:12px 14px; border:1px solid transparent; }
 .disp-card .disp-label { font-family:var(--mono); font-size:10px; font-weight:500;
@@ -94,7 +98,6 @@ section { margin-bottom:52px; }
 .disp-conditional { background:var(--conditional-bg); border-color:#d6ccf0; }
 .disp-conditional .disp-label { color:var(--conditional-color); }
 
-/* TABLES */
 .table-wrap { overflow-x:auto; border-radius:var(--radius); border:1px solid var(--rule); margin-bottom:24px; }
 table { width:100%; border-collapse:collapse; font-size:13px; background:var(--bg-white); }
 thead th { font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em;
@@ -105,7 +108,6 @@ tbody tr:last-child td { border-bottom:none; }
 tbody tr:hover { background:#faf7f2; }
 .concept-cell { font-weight:600; font-size:12px; color:var(--navy-900); white-space:nowrap; }
 
-/* DIMENSIONS */
 .dimension-grid { display:flex; flex-direction:column; gap:0; }
 .dimension-row { background:var(--bg-white); border:1px solid var(--rule);
   border-radius:var(--radius); overflow:hidden; margin-bottom:8px; }
@@ -137,58 +139,26 @@ tbody tr:hover { background:#faf7f2; }
   letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-600); margin-bottom:6px; }
 .rec-box p { font-size:13px; line-height:1.6; color:var(--fg-2); }
 
-/* WORKAROUND / REMOVE TABLES */
-.workaround-table,.remove-table,.macro-table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:12px; }
-.workaround-table th,.remove-table th,.macro-table th { font-family:var(--mono); font-size:9.5px;
+.workaround-table,.remove-table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:12px; }
+.workaround-table th,.remove-table th { font-family:var(--mono); font-size:9.5px;
   letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-3); padding:8px 12px;
   background:var(--cream-2); text-align:left; border-bottom:1px solid var(--rule); }
-.workaround-table td,.remove-table td,.macro-table td { padding:10px 12px;
+.workaround-table td,.remove-table td { padding:10px 12px;
   border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.5; }
-.workaround-table tr:last-child td,.remove-table tr:last-child td,.macro-table tr:last-child td { border-bottom:none; }
-.workaround-table tr:hover td,.remove-table tr:hover td,.macro-table tr:hover td { background:#faf7f2; }
+.workaround-table tr:last-child td,.remove-table tr:last-child td { border-bottom:none; }
+.workaround-table tr:hover td,.remove-table tr:hover td { background:#faf7f2; }
 .action-tag { font-family:var(--mono); font-size:10px; font-weight:500;
   background:var(--remove-bg); color:var(--remove-color); padding:2px 6px; border-radius:3px; white-space:nowrap; }
 .cat-tag { font-family:var(--mono); font-size:10px; font-weight:500;
   background:#e8f0f8; color:var(--navy-700); padding:2px 6px; border-radius:3px; }
-.status-ok { font-family:var(--mono); font-size:10px; background:var(--migrate-bg); color:var(--migrate-color); padding:2px 7px; border-radius:3px; white-space:nowrap; }
-.status-part { font-family:var(--mono); font-size:10px; background:var(--rethink-bg); color:var(--rethink-color); padding:2px 7px; border-radius:3px; white-space:nowrap; }
-.status-no { font-family:var(--mono); font-size:10px; background:var(--remove-bg); color:var(--remove-color); padding:2px 7px; border-radius:3px; white-space:nowrap; }
-.status-conv { font-family:var(--mono); font-size:10px; background:var(--native-bg); color:var(--native-color); padding:2px 7px; border-radius:3px; white-space:nowrap; }
+.text-sm { font-size:12px; color:var(--fg-3); }
 
-/* BLUEPRINT */
 .blueprint-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:10px; }
 .blueprint-card { background:var(--bg-white); border:1px solid var(--rule); border-radius:var(--radius); padding:14px 16px; }
 .bc-label { font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-4); margin-bottom:4px; }
 .bc-value { font-size:13px; font-weight:600; color:var(--navy-900); margin-bottom:4px; }
 .bc-note { font-size:12px; color:var(--fg-3); line-height:1.4; }
 
-/* PHASES */
-.phase-block { margin-bottom:28px; border:1px solid var(--rule); border-radius:var(--radius); overflow:hidden; background:var(--bg-white); }
-.phase-header { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px; padding:15px 20px; background:var(--navy-800); color:#fff; }
-.phase-num { font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); }
-.phase-title { font-weight:700; font-size:15px; letter-spacing:-0.02em; }
-.phase-time { font-family:var(--mono); font-size:11px; color:var(--yellow); white-space:nowrap; }
-.phase-gate { padding:8px 20px 10px; background:#f0f7f6; border-bottom:1px solid var(--rule); font-size:12px; color:var(--teal-600); }
-.remediation-item { border-bottom:1px solid var(--rule); padding:18px 20px; }
-.remediation-item:last-child { border-bottom:none; }
-.rem-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
-.rem-id { font-family:var(--mono); font-size:10px; font-weight:500; white-space:nowrap; margin-top:2px; }
-.rem-title { font-weight:600; font-size:14px; color:var(--navy-900); line-height:1.3; }
-.rem-desc { font-size:13px; color:var(--fg-2); line-height:1.6; margin-bottom:10px; }
-.rem-steps { list-style:none; counter-reset:step; margin:8px 0 12px 0; }
-.rem-steps li { counter-increment:step; display:flex; gap:10px;
-  font-size:13px; line-height:1.5; margin-bottom:6px; color:var(--fg-2); }
-.rem-steps li::before { content:counter(step); font-family:var(--mono); font-size:10px; font-weight:500;
-  color:var(--fg-4); background:var(--cream-2); min-width:20px; height:20px;
-  border-radius:50%; display:flex; align-items:center; justify-content:center;
-  margin-top:2px; flex-shrink:0; }
-.rem-meta { display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; }
-.rem-meta-item { display:flex; gap:5px; align-items:center; font-size:12px; }
-.rem-meta-item label { font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--fg-4); }
-.rem-meta-item span { color:var(--fg-2); font-weight:500; }
-.rem-warning { font-size:11px; font-family:var(--mono); background:var(--remove-bg); color:var(--remove-color); padding:4px 8px; border-radius:3px; margin-top:8px; display:inline-block; }
-
-/* BEST PRACTICES */
 .bp-section { margin-bottom:28px; }
 .bp-section h3 { font-size:15px; font-weight:700; letter-spacing:-0.02em; color:var(--navy-800); margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--rule); }
 .bp-list { list-style:none; margin:0; padding:0; }
@@ -199,27 +169,23 @@ tbody tr:hover { background:#faf7f2; }
 .appendix-list li { font-size:13px; color:var(--fg-2); padding:6px 0; border-bottom:1px solid var(--rule); display:flex; gap:8px; align-items:baseline; }
 .appendix-list li:last-child { border-bottom:none; }
 .appendix-bullet { color:var(--teal-600); font-weight:700; flex-shrink:0; }
-.text-sm { font-size:12px; color:var(--fg-3); }
 
-/* FOOTER */
 .page-footer { background:var(--navy-900); color:rgba(255,255,255,0.45);
   padding:22px 32px; display:flex; justify-content:space-between; align-items:center;
   font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:40px; }
 .footer-brand { color:rgba(255,255,255,0.7); font-weight:500; }
 
-/* PRINT */
 @media print {
   * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   .toc-nav { display:none !important; }
-  .cover { background:var(--navy-900) !important; color:#fff !important; padding:44px 44px 38px !important; break-after:page; page-break-after:always; }
+  .cover { background:var(--navy-900) !important; color:#fff !important;
+    padding:44px 44px 38px !important; break-after:page; page-break-after:always; }
   .cover h1 { font-size:28px !important; }
+  .cover-meta { grid-template-columns:repeat(3,1fr) !important; }
   .dimension-body { display:block !important; }
   .dimension-row { break-inside:avoid; margin-bottom:6px; }
-  .phase-block { break-inside:avoid; }
-  .remediation-item { break-inside:avoid; }
-  .phase-header { background:var(--navy-800) !important; color:#fff !important; }
-  .phase-gate { background:#f0f7f6 !important; }
   .rec-box { background:#f0f7f6 !important; }
+  .alkami-context-banner { background:#f0f7f6 !important; }
   thead th { background:var(--cream-2) !important; }
   #closing { background:var(--navy-900) !important; break-inside:avoid; }
   .page-footer { background:var(--navy-900) !important; color:rgba(255,255,255,0.6) !important; }
@@ -239,13 +205,13 @@ tbody tr:hover { background:#faf7f2; }
   </div>
   <p style="font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Alkami Technology</p>
   <h1>Atlassian Data Center<br/>to Cloud Migration<br/><em>Assessment Report</em></h1>
-  <p class="cover-sub">Jira Software DC &middot; Jira Service Management DC &middot; Confluence DC &mdash; analyzed across configuration dimensions to identify what to migrate, remove, rethink, or replace with Cloud-native features. Atlassian Data Center is approaching end of life. This assessment supports a deliberate migration that brings only what is needed.</p>
+  <p class="cover-sub">Jira Software DC &middot; Confluence DC &mdash; analyzed across configuration dimensions to identify what to standardize now, what to migrate, and how each piece translates to Cloud. This assessment addresses both the DC standardization required before migration and the Cloud target state.</p>
   <div class="cover-meta">
     <div class="cover-meta-item"><label>Client</label><span>Alkami Technology</span></div>
-    <div class="cover-meta-item"><label>Products</label><span>Jira Software &middot; JSM &middot; Confluence DC</span></div>
+    <div class="cover-meta-item"><label>Products</label><span>Jira Software DC &middot; Confluence DC</span></div>
     <div class="cover-meta-item"><label>Scope</label><span>Configuration dimensions only</span></div>
-    <div class="cover-meta-item"><label>Purpose</label><span>DC EOL migration readiness assessment</span></div>
-    <div class="cover-meta-item"><label>Audience</label><span>Atlassian Admin &middot; Migration Team</span></div>
+    <div class="cover-meta-item"><label>Purpose</label><span>DC standardization + Cloud migration readiness</span></div>
+    <div class="cover-meta-item"><label>Audience</label><span>Atlassian Admin &middot; Engineering Leadership</span></div>
     <div class="cover-meta-item"><label>Data migration</label><span>Out of scope for this assessment</span></div>
   </div>
   <div class="cover-confidential">Confidential &mdash; Internal Use Only</div>
@@ -259,11 +225,9 @@ tbody tr:hover { background:#faf7f2; }
   <div class="nav-divider"></div>
   <a href="#how-to-read">How to Read</a>
   <a href="#part1">1 &middot; Jira Software</a>
-  <a href="#part2">2 &middot; JSM</a>
-  <a href="#part3">3 &middot; Confluence</a>
-  <a href="#blueprint">4 &middot; Blueprint</a>
-  <a href="#remediation">5 &middot; Remediation</a>
-  <a href="#bestpractice">6 &middot; Best Practices</a>
+  <a href="#part2">2 &middot; Confluence</a>
+  <a href="#blueprint">3 &middot; Blueprint</a>
+  <a href="#bestpractice">4 &middot; Best Practices</a>
   <a href="#appendix">Appendix</a>
 </nav>
 
@@ -275,39 +239,46 @@ tbody tr:hover { background:#faf7f2; }
     <span class="section-num">How to Read This Report</span>
     <h2>Disposition Framework</h2>
   </div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Every configuration dimension is assigned one of five dispositions. These tell the migration team what to do with each element &mdash; not just whether it is compatible, but whether it should be carried forward at all. DC didn&rsquo;t break. It evolved into a configuration model that Cloud has structurally replaced. This assessment maps that gap precisely.</p>
+
+  <div class="alkami-context-banner">
+    <span class="acb-label">Alkami Environment Context</span>
+    <p>Alkami&rsquo;s DC environment includes ~200 custom workflows, ~1,000 automation rules, heavy ScriptRunner usage, the Team Secrets plugin handling PII encryption (no direct Cloud equivalent), and an acquired company already running Jira Cloud that needs to consolidate. In parallel, portfolio management and quarterly planning are being stood up for the first time across ~60 scrum teams &mdash; which requires standardization and cleanup work on DC before migration can deliver clean data to Cloud. This assessment frames both: the DC standardization required now, and how each piece translates to Cloud.</p>
+  </div>
+
+  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Every configuration dimension is assigned one of five dispositions. These tell the migration team what to do with each element &mdash; not just whether it is compatible, but whether it should be carried forward at all. DC didn&rsquo;t break. It outgrew what was built. This assessment maps the gap between where Alkami&rsquo;s DC environment is today and what Cloud requires.</p>
   <div class="disposition-legend">
     <div class="disp-card disp-migrate"><span class="disp-label">Migrate</span><span class="disp-desc">Direct Cloud equivalent exists. Carry forward with standard migration tooling. May require minor reconfiguration.</span></div>
     <div class="disp-card disp-native"><span class="disp-label">Native Cloud</span><span class="disp-desc">The DC configuration was a workaround for missing functionality. Cloud has this natively. Remove the workaround and configure the native feature instead.</span></div>
-    <div class="disp-card disp-rethink"><span class="disp-label">Rethink</span><span class="disp-desc">The DC approach exists in Cloud but is not best practice. Migration is possible but redesign before or during migration is the right move.</span></div>
+    <div class="disp-card disp-rethink"><span class="disp-label">Rethink</span><span class="disp-desc">The DC approach exists in Cloud but is not best practice, or requires significant standardization before migration delivers value.</span></div>
     <div class="disp-card disp-remove"><span class="disp-label">Remove</span><span class="disp-desc">No Cloud equivalent, zero active usage, or the feature has been superseded. Do not migrate. Archive or decommission before cutover.</span></div>
-    <div class="disp-card disp-conditional"><span class="disp-label">Conditional</span><span class="disp-desc">Whether to migrate depends on license tier, active usage, or stakeholder decision. Requires investigation before disposition is confirmed.</span></div>
+    <div class="disp-card disp-conditional"><span class="disp-label">Conditional</span><span class="disp-desc">Whether to migrate depends on license tier, active usage, or a pending architectural decision. Requires investigation before disposition is confirmed.</span></div>
   </div>
 </section>
 
 <!-- PART 1 — JIRA SOFTWARE -->
 <section id="part1">
   <div class="section-header"><span class="section-num">Part 1</span><h2>Jira Software DC &rarr; Cloud</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Jira Software is the most configuration-rich of the three products. The most critical DC-to-Cloud differences involve Groovy-based customisations (ScriptRunner, Behaviours), the project hierarchy model, and the shift from server-side post-functions to Cloud Automation. Every architectural decision below flows from these three shifts.</p>
+  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Jira Software carries the most configuration complexity in Alkami&rsquo;s environment. The most critical migration risks are: ~200 custom workflows requiring standardization before migration, heavy ScriptRunner dependency with no Cloud runtime for Groovy, the Team Secrets plugin with no Cloud equivalent, ~1,000 automation rules requiring audit and consolidation, and the acquired company&rsquo;s Cloud environment requiring an explicit consolidation strategy before migration begins.</p>
 
   <h3 class="subsection-title">1.1 Architecture Differences</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>Concept</th><th>Data Center</th><th>Cloud</th></tr></thead>
     <tbody>
       <tr><td class="concept-cell">Customisation language</td><td>Groovy (ScriptRunner, Behaviours, Script Listeners)</td><td>No Groovy. Automation rules, Forge apps, Connect apps, and native Cloud features.</td></tr>
-      <tr><td class="concept-cell">Project type</td><td>All projects are company-managed; team-managed is a Cloud-only concept</td><td>Team-managed (simplified) and company-managed (scheme-based)</td></tr>
+      <tr><td class="concept-cell">Project type</td><td>All projects are company-managed</td><td>Team-managed (simplified) and company-managed (scheme-based)</td></tr>
       <tr><td class="concept-cell">Workflow post-functions</td><td>Groovy scripts, email notifications, HTTP requests</td><td>Automation rules triggered on transition; no Groovy post-functions</td></tr>
       <tr><td class="concept-cell">Field behaviour</td><td>Behaviours app (show/hide/require fields dynamically)</td><td>Native Cloud: field configuration + Automation; no direct equivalent</td></tr>
+      <tr><td class="concept-cell">PII / secrets in fields</td><td>Team Secrets plugin: field-level encryption for sensitive data</td><td>No Cloud equivalent. Requires Forge app development or architectural change.</td></tr>
       <tr><td class="concept-cell">User management</td><td>Local users, LDAP/AD sync, Crowd</td><td>Atlassian Access / Identity Provider (SAML/SCIM); no local users</td></tr>
-      <tr><td class="concept-cell">App ecosystem</td><td>Server/DC Marketplace apps</td><td>Cloud Marketplace apps &mdash; different catalog; not all DC apps have Cloud equivalents</td></tr>
-      <tr><td class="concept-cell">Advanced Roadmaps</td><td>Server-side plugin</td><td>Native in Jira Cloud Premium; different data model</td></tr>
+      <tr><td class="concept-cell">App ecosystem</td><td>Server/DC Marketplace apps</td><td>Cloud Marketplace &mdash; different catalog; not all DC apps have Cloud equivalents</td></tr>
+      <tr><td class="concept-cell">Advanced Roadmaps</td><td>Portfolio for Jira (server-side plugin)</td><td>Native in Jira Cloud Premium; different data model; plans do not import</td></tr>
+      <tr><td class="concept-cell">Multi-site / acquisition</td><td>Single DC environment</td><td>Acquired company on separate Cloud org requires explicit consolidation strategy</td></tr>
       <tr><td class="concept-cell">REST API</td><td>Jira Server/DC REST API v2</td><td>Jira Cloud REST API v3 &mdash; different endpoints and response shapes</td></tr>
-      <tr><td class="concept-cell">Permissions</td><td>Permission schemes with all grant types</td><td>Permission schemes; user grants not recommended; Atlassian Access for org-level</td></tr>
     </tbody>
   </table></div>
 
   <h3 class="subsection-title">1.2 Configuration Dimension Analysis</h3>
-  <p class="text-sm" style="margin-bottom:14px;">Click any dimension to expand the DC approach, Cloud equivalent, and migration recommendation.</p>
+  <p class="text-sm" style="margin-bottom:14px;">Click any dimension to expand the DC approach, Cloud equivalent, migration recommendation, and Alkami-specific context where relevant.</p>
   <div class="dimension-grid">
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
@@ -318,11 +289,11 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Workflow schemes with Groovy post-functions, validator scripts, and condition scripts via ScriptRunner</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Shared workflow schemes; post-functions replaced by Automation rules; conditions via role validators</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">~200 custom workflow schemes with Groovy post-functions, validator scripts, and condition scripts via ScriptRunner. Many workflows were built per-team without standardization.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Shared workflow schemes; post-functions replaced by Automation rules; conditions via role validators.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate workflow status/transition structure. Remove all Groovy post-functions and reimplement as Automation rules. Remove ScriptRunner conditions — replace with role validators or Automation.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Standardize first, then migrate. With ~200 custom workflows, rationalization before migration is not optional — it determines whether Cloud Automation is manageable or chaotic. Audit for duplication across teams. Consolidate to a minimal shared set before migration tooling runs. Remove all Groovy post-functions and reimplement as Cloud Automation.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>~200 custom workflows is the single largest standardization challenge. Alkami's ~60 scrum teams have accumulated divergent workflow configurations that will produce noisy, inconsistent data in Cloud if migrated as-is. Consolidation now is what makes portfolio reporting trustworthy later.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -334,11 +305,27 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Groovy scripts for workflow post-functions, validators, conditions, field defaults, and event listeners</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Heavy ScriptRunner usage across workflow post-functions, validators, conditions, field defaults, and event listeners. Estimated several hundred active scripts.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">No Groovy in Cloud. Automation rules cover ~70% of use cases. Complex logic requires Forge apps.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all scripts. Categorise as: (a) replaceable by Automation, (b) requires Forge app, (c) obsolete. Do not migrate scripts — rebuild as Automation rules or Forge apps.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all scripts. Categorise as: (a) replaceable by Cloud Automation, (b) requires Forge app, (c) obsolete. Do not migrate scripts — rebuild as Automation rules or Forge apps. Given the volume at Alkami, this is the first task and the longest.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>Heavy ScriptRunner dependency is the primary migration risk. The inventory and categorization work will determine migration timeline more than any other single factor.</div>
+      </div>
+    </div>
+    <div class="dimension-row">
+      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
+        <span class="disp-badge disp-REMOVE">REMOVE</span>
+        <span class="dim-title">Team Secrets Plugin (PII Encryption)</span>
+        <span></span>
+        <span class="dim-chevron">&#9654;</span>
+      </div>
+      <div class="dimension-body">
+        <div class="dim-body-grid">
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Team Secrets plugin used for PII encryption within Jira fields. Sensitive data is stored encrypted in DC field values, with access controlled by the plugin.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">No direct Cloud equivalent. No Atlassian Marketplace app provides equivalent PII field-level encryption in Jira Cloud.</div></div>
+        </div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate fields containing Team Secrets-encrypted data without a replacement strategy in place. Options: (1) evaluate Forge app development for a custom encryption solution, (2) move PII data out of Jira entirely into a purpose-built secrets management system, (3) assess whether the data needs to be in Jira at all. This requires an explicit decision before migration begins — it cannot be resolved during cutover.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>Team Secrets has no Cloud equivalent. This is a hard blocker for any fields using the plugin. The decision on how to handle PII data must be made and implemented before migration can proceed. This is Alkami-specific and not a standard migration item.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -350,10 +337,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Behaviours app: show/hide fields, set required dynamically, cascade field values based on other field input</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Behaviours app: show/hide fields, set required dynamically, cascade field values based on other field input.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">No direct equivalent. Partial coverage via field configurations + Automation rules for cascading. Forge UI for complex dynamic behaviour.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Catalogue all Behaviours rules. Simple required/hidden rules migrate to field configurations. Cascade logic requires Automation. Complex UI behaviour requires a Forge app — budget development time accordingly.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Catalogue all Behaviours rules. Simple required/hidden rules migrate to field configurations. Cascade logic requires Automation. Complex UI behaviour requires a Forge app. Budget development time accordingly.</p></div>
         
       </div>
     </div>
@@ -366,27 +353,27 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Issue type schemes with custom types; Advanced Roadmaps adds Portfolio Epics and Initiatives</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Issue type schemes with custom types; Advanced Roadmaps adds Portfolio Epics and Initiatives. Multiple competing issue type hierarchies across teams.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same structure in Cloud. Advanced Roadmaps (Premium) supports Initiatives. Level names may differ.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate issue type schemes directly. If using Advanced Roadmaps hierarchy, confirm target org has Jira Premium. Level names may need updating for Cloud AR naming conventions.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Standardize issue type hierarchy across all ~60 scrum teams before migration. Confirm Jira Cloud Premium for Advanced Roadmaps. A consistent Epic → Story/Task → Sub-task + Initiative hierarchy is required for portfolio reporting to function correctly.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>Inconsistent issue type hierarchies across teams produce broken portfolio plans. Alkami's new portfolio management and quarterly planning initiative requires a uniform hierarchy to be in place in DC before migration — not after.</div>
       </div>
     </div>
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
+        <span class="disp-badge disp-RETHINK">RETHINK</span>
         <span class="dim-title">Custom Fields</span>
         <span></span>
         <span class="dim-chevron">&#9654;</span>
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Global custom fields; field configuration schemes control required/hidden per issue type and project</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Global custom fields accumulated over time; field configuration schemes control required/hidden. High likelihood of duplicate, unused, or overlapping fields across teams.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same model in Cloud. Context-scoped fields available. Global fields are an anti-pattern at scale.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate with field context audit. Re-scope global fields to project or issue-type context. Remove fields with zero usage in 180 days. De-duplicate fields with identical name and type.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Run a full field audit before migration. Remove fields with zero usage in 180 days. De-duplicate fields with identical name and type. Re-scope global fields to project or issue-type context. With ~60 teams, field proliferation is likely significant.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>Custom field cleanup is directly linked to portfolio reporting quality. Fields used in portfolio plans, capacity tracking, and R&D investment reporting must be standardized and consistently populated before migration — inconsistent field data produces unreliable plan output.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -398,10 +385,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Permission schemes with all grant types — user-level grants are unsupported best-practice-wise</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same model with group/role grants. Migrate schemes; convert user grants to groups.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Permission schemes with all grant types including user-level grants. May include per-team permission customizations.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same model with group/role grants. User-level grants not recommended.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate permission schemes. Convert all user-level grants to group membership before migration. Remove Application Role grants — not applicable in Cloud.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Consolidate permission schemes across teams. Convert all user-level grants to group membership. Aim for a small set of shared schemes (e.g., standard delivery, read-only, admin) rather than one scheme per project.</p></div>
         
       </div>
     </div>
@@ -414,10 +401,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Notification schemes with user, group, role, and email recipients; event-driven</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Notification schemes with user, group, role, and email recipients; event-driven.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same model in Cloud. Email recipient notifications should be replaced with group/role.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate notification schemes. Audit for individual email and user recipients — convert to group/role. Reduce event subscriptions to high-signal events only.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate notification schemes. Audit for individual email and user recipients — convert to group/role. Reduce event subscriptions to high-signal events only — noisy notifications are a common complaint post-migration.</p></div>
         
       </div>
     </div>
@@ -430,27 +417,27 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Screen and screen schemes; issue type screen schemes</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Identical in Cloud</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Screen and screen schemes; issue type screen schemes. Per-team screen divergence likely.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Identical in Cloud.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. Audit for screens with 20+ fields — Cloud best practice is to keep screens focused. Remove unused screens.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit for screen proliferation across teams. Standardize to a minimal shared set. Screens with 20+ fields should be broken up — Cloud best practice favors focused screens.</p></div>
         
       </div>
     </div>
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
         <span class="disp-badge disp-NATIVE">NATIVE</span>
-        <span class="dim-title">Automation (built-in)</span>
+        <span class="dim-title">Automation (~1,000 rules)</span>
         <span></span>
         <span class="dim-chevron">&#9654;</span>
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Limited native automation (auto-assign, auto-close). Most automation via ScriptRunner.</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Jira Cloud Automation is a first-class feature with 50+ trigger types, conditions, and actions. Far more capable than DC built-in.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">~1,000 automation rules built in DC native automation plus ScriptRunner. Many rules are team-specific and may be redundant or inactive.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Jira Cloud Automation is a first-class feature. Far more capable than DC built-in, and replaces ScriptRunner listeners and post-functions.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate DC automation rules. Rebuild all ScriptRunner-based automation logic as Cloud Automation rules. Cloud Automation is the replacement for ScriptRunner listeners and post-functions.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate DC automation rules as-is. Audit all ~1,000 rules first: identify inactive rules (never fired or disabled >90 days), duplicates across teams, and rules that conflict with standard workflows. Rebuild only the rules that survive the audit. Cloud Automation gives a clean opportunity to establish a governed, centralized rule set.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>~1,000 automation rules with likely high redundancy across ~60 teams. Migrating all of them would import the configuration debt. The audit is an opportunity to establish a standardized automation governance model — one owner, one rule library — rather than a team-by-team free-for-all.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -462,10 +449,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Project roles with user and group actors; global role definitions</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; group actors preferred</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Project roles with user and group actors; global role definitions. Possibly inconsistent role usage across teams.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; group actors preferred.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate role definitions. Convert user actors to group membership. Remove project-specific user actor assignments.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Standardize role names and actor assignments across teams before migration. Convert user actors to group membership. Remove roles defined but never used.</p></div>
         
       </div>
     </div>
@@ -478,10 +465,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Project components with leads; versions/releases with dates</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Identical in Cloud</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Project components with leads; versions/releases with dates. Release cadence may vary significantly across ~60 teams.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Identical in Cloud.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. Archive released versions before migration. Audit component leads — orphaned components need owners assigned.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. Archive released versions before migration. Audit component leads — orphaned components need owners. Standardize version naming conventions across teams if portfolio-level release tracking is a goal.</p></div>
         
       </div>
     </div>
@@ -494,27 +481,27 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Jira Software boards: Scrum and Kanban; filter-based boards; Rapid Views (legacy)</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Jira Software boards: Scrum and Kanban; filter-based boards; possible Rapid Views (legacy).</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same board types in Cloud. Rapid Views (legacy Jira boards) do not exist in Cloud.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate Scrum and Kanban boards. Rapid View configurations must be rebuilt as standard boards. Audit board filters — project key references will change. Rebuild column-to-status mappings explicitly.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate Scrum and Kanban boards. Rebuild any Rapid Views as standard boards. Audit board filters — project key references will change. This is also an opportunity to standardize board configurations across the ~60 teams for consistent sprint reporting.</p></div>
         
       </div>
     </div>
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
         <span class="disp-badge disp-CONDITIONAL">CONDITIONAL</span>
-        <span class="dim-title">Advanced Roadmaps</span>
+        <span class="dim-title">Advanced Roadmaps / Portfolio</span>
         <span></span>
         <span class="dim-chevron">&#9654;</span>
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Portfolio for Jira (DC plugin): plans, teams, hierarchy levels</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Advanced Roadmaps is native in Jira Cloud Premium. Data model and hierarchy levels differ from DC Portfolio.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Portfolio for Jira (DC plugin) or Advanced Roadmaps: plans, teams, hierarchy levels. New portfolio management and quarterly planning initiative being stood up across ~60 scrum teams.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Advanced Roadmaps is native in Jira Cloud Premium. Data model and hierarchy levels differ from DC Portfolio. Plans do not directly import.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Conditional on Jira Cloud Premium license. If migrating: re-create plans from scratch — DC Portfolio data cannot be directly imported. The hierarchy model is different; redefine levels before migration.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Conditional on Jira Cloud Premium license (confirm). Portfolio plans must be rebuilt from scratch in Cloud — DC Portfolio data cannot be directly imported. Critically: the hierarchy, field, and workflow standardization work being done in DC now directly determines whether Cloud portfolio plans contain useful data. Standardize first, migrate second.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>Alkami is standing up portfolio management and quarterly planning for the first time across ~60 scrum teams. This work must be done in DC first — before migration — because Cloud Advanced Roadmaps inherits whatever data quality exists at cutover. Clean hierarchy, consistent fields, and standard workflows in DC = trustworthy portfolio plans in Cloud.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -526,10 +513,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">DC Marketplace apps (ScriptRunner, Tempo, Zephyr, Elements, etc.)</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud Marketplace has different apps. Not all DC apps have Cloud equivalents. Some have rewritten Cloud versions with different feature sets.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">DC Marketplace apps including ScriptRunner, Behaviours, Team Secrets, and others. Team Secrets has no Cloud equivalent.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud Marketplace has different apps. Not all DC apps have Cloud equivalents. Team Secrets has no Cloud replacement.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit every installed DC app. Confirm Cloud equivalent exists and supports required features. Identify apps with no Cloud version — these require native Cloud or Forge alternatives. Remove unused apps before migration.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit every installed DC app. Confirm Cloud equivalent exists. Team Secrets requires an explicit replacement decision (see Team Secrets dimension above). Remove unused apps before migration — every unused app adds migration risk.</p></div>
         
       </div>
     </div>
@@ -542,11 +529,11 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Local users, LDAP sync, Crowd integration, manual user management</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Atlassian Cloud identity: Atlassian Access (SAML SSO, SCIM provisioning, policy enforcement). No local users.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Local users, LDAP sync, Crowd integration, manual user management. Acquired company already running Jira Cloud adds identity complexity.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Atlassian Cloud identity: Atlassian Access (SAML SSO, SCIM provisioning). No local users.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate local users directly. Set up Atlassian Access with your IdP (Okta, Azure AD, etc.) before migration. Map DC user accounts to cloud-managed identities. Local user accounts must be converted — there is no bulk import path for passwords.</p></div>
-        
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Configure Atlassian Access with your IdP before migration. Map DC user accounts to cloud-managed identities. Local user accounts must be converted — no bulk import path for passwords. The acquired company's Jira Cloud users need to be reconciled into the same org under a unified identity model.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>The acquired company already running Jira Cloud creates a specific identity challenge: two sets of Atlassian accounts, potentially two orgs, with different user bases that need to converge. Resolve the org consolidation plan before migrating DC users — otherwise you risk conflicting identity records during cutover.</div>
       </div>
     </div>
     <div class="dimension-row">
@@ -558,10 +545,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">User-owned and shared filters with JQL; dashboards with gadgets</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud. Some gadget types do not exist in Cloud (Agile gadgets replaced by boards).</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">User-owned and shared filters with JQL; dashboards with gadgets. Filters used for portfolio and cross-team reporting.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud. Some gadget types do not exist in Cloud.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate filters and dashboards. Update JQL to use Cloud project keys. Remove gadgets with no Cloud equivalent. Audit shared filter permissions — group sharing must use Cloud groups.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate filters and dashboards. Update JQL to use Cloud project keys. Remove gadgets with no Cloud equivalent. Audit shared filter permissions — group sharing must use Cloud groups. Portfolio-level dashboard filters are especially important to validate post-migration.</p></div>
         
       </div>
     </div>
@@ -574,8 +561,8 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Security levels with user, group, role, and reporter grants</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Security levels with user, group, role, and reporter grants.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud.</div></div>
         </div>
         <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. Audit for user-level security grants — convert to groups.</p></div>
         
@@ -583,18 +570,34 @@ tbody tr:hover { background:#faf7f2; }
     </div>
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Email / Incoming Mail</span>
+        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
+        <span class="dim-title">Saved Filters (Board/Backlog Scope)</span>
         <span></span>
         <span class="dim-chevron">&#9654;</span>
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Incoming mail handlers: create issues, add comments from email</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud has email integration through a simplified handler. Complex routing logic requires automation.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Board scope filters defining which issues appear in each team's backlog and board.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; filters must be updated to use Cloud project keys.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit incoming mail handler logic. Simple create-issue-from-email migrates to Cloud email integration. Complex routing rules must be rebuilt as Automation rules with email triggers.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate and update project key references. Validate that each team's board displays the correct scope post-migration — board scope filter errors are the most common first-day complaint.</p></div>
         
+      </div>
+    </div>
+    <div class="dimension-row">
+      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
+        <span class="disp-badge disp-CONDITIONAL">CONDITIONAL</span>
+        <span class="dim-title">Cloud Consolidation (Acquired Company)</span>
+        <span></span>
+        <span class="dim-chevron">&#9654;</span>
+      </div>
+      <div class="dimension-body">
+        <div class="dim-body-grid">
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Acquired company running Jira Cloud on a separate org/site. DC Alkami environment consolidating with existing Cloud tenant.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Single Atlassian org with consolidated projects, permission schemes, and user identities.</div></div>
+        </div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Conditional on org consolidation strategy decision. Options: (1) migrate DC into the acquired company's existing Cloud site, (2) create a new site and migrate both, (3) keep separate sites with cross-site linking. The consolidation model determines migration sequencing, user mapping, and project key conflicts. This decision must be made before migration planning begins.</p></div>
+        <div style="margin-top:10px;background:#fff8f0;border:1px solid #fde8c6;border-radius:4px;padding:10px 14px;font-size:12px;color:#7a4500;"><span style="font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#eb563c;display:block;margin-bottom:3px;">Alkami Context</span>The acquired company's Cloud environment is not a secondary concern — it determines where DC migrates to and how user identities resolve. This is the architectural decision that unlocks everything else.</div>
       </div>
     </div></div>
 
@@ -608,9 +611,8 @@ tbody tr:hover { background:#faf7f2; }
       <tr><td>Behaviours required-field toggling</td><td>Dynamically required fields based on another field value</td><td>Field configuration + Automation (partial). Full dynamic behaviour requires Forge.</td><td>Simple cases: field configuration per issue type. Complex cases: evaluate Forge UI kit.</td></tr>
       <tr><td>ScriptRunner HTTP request post-functions</td><td>Webhook-style calls to external systems on issue events</td><td>Jira Cloud Automation &mdash; Send web request action</td><td><span class="action-tag">Remove &amp; Rebuild</span> as Cloud Automation with Send Web Request action.</td></tr>
       <tr><td>ScriptRunner listener for cross-project sync</td><td>Mirror issue state or fields across projects</td><td>Jira Cloud Automation &mdash; cross-project automation with Related issues conditions</td><td><span class="action-tag">Remove &amp; Rebuild</span> as Automation rule scoped to source project.</td></tr>
-      <tr><td>Custom dashboard gadgets via plugin</td><td>Metrics, charts, or reports not available in default Jira</td><td>Cloud dashboards include native gadgets; Atlassian Analytics (Premium/Enterprise)</td><td>Audit each gadget. Migrate to equivalent Cloud gadget or Atlassian Analytics report.</td></tr>
       <tr><td>Rapid View board configuration</td><td>Legacy Jira board layout (pre-Jira Software naming)</td><td>Jira Software standard Scrum and Kanban boards</td><td>Rebuild as standard board. Column/swimlane config must be remapped.</td></tr>
-      <tr><td>Portfolio for Jira hierarchy hacks</td><td>Extra issue type levels beyond Epic to simulate programme/portfolio hierarchy</td><td>Advanced Roadmaps in Jira Cloud Premium has native hierarchy levels</td><td>Redefine hierarchy in Advanced Roadmaps. Remove the extra issue types used as workarounds.</td></tr>
+      <tr><td>Portfolio for Jira hierarchy workarounds</td><td>Extra issue type levels beyond Epic to simulate programme/portfolio hierarchy</td><td>Advanced Roadmaps in Jira Cloud Premium has native hierarchy levels</td><td>Redefine hierarchy in Advanced Roadmaps. Standardize across all ~60 teams before migration.</td></tr>
     </tbody>
   </table></div>
 
@@ -618,285 +620,40 @@ tbody tr:hover { background:#faf7f2; }
   <div class="table-wrap"><table class="remove-table">
     <thead><tr><th>Category</th><th>What to Remove</th><th>Why</th></tr></thead>
     <tbody>
-      <tr><td><span class="cat-tag">Custom fields</span></td><td>Fields with zero usage in 180 days</td><td>Orphaned fields pollute the global field list; cost scales with instance size in Cloud</td></tr>
+      <tr><td><span class="cat-tag">Custom fields</span></td><td>Fields with zero usage in 180 days</td><td>Orphaned fields pollute the global field list and degrade portfolio reporting accuracy</td></tr>
       <tr><td><span class="cat-tag">ScriptRunner scripts</span></td><td>Any script with zero executions in 90 days</td><td>Dead code that creates migration complexity and no value</td></tr>
-      <tr><td><span class="cat-tag">Automation rules</span></td><td>Rules that have never fired or were disabled &gt;90 days ago</td><td>Silent dead rules that will not fire correctly in Cloud anyway</td></tr>
-      <tr><td><span class="cat-tag">Apps / plugins</span></td><td>Any app not in active use</td><td>Every unused app adds migration risk; Cloud app licensing is per-user</td></tr>
-      <tr><td><span class="cat-tag">Inactive users</span></td><td>Accounts inactive &gt;180 days</td><td>Cloud licensing is per active user; inactive users should be deactivated before migration</td></tr>
-      <tr><td><span class="cat-tag">Archived projects</span></td><td>Projects with zero activity in 12+ months</td><td>Confirm archival intent with stakeholders; do not migrate projects that nobody will use</td></tr>
-      <tr><td><span class="cat-tag">Released versions</span></td><td>All released versions older than current fiscal year</td><td>Creates noise in version picker; historical release data belongs in release notes not Jira</td></tr>
-      <tr><td><span class="cat-tag">Rapid View boards</span></td><td>Legacy board configurations</td><td>Replaced by standard boards in Cloud; no migration path</td></tr>
+      <tr><td><span class="cat-tag">Automation rules</span></td><td>Rules that have never fired or were disabled &gt;90 days ago</td><td>~1,000 rules likely includes significant dead weight; silent dead rules will not fire correctly in Cloud anyway</td></tr>
+      <tr><td><span class="cat-tag">Apps / plugins</span></td><td>Any app not in active use including Team Secrets fields with no replacement plan</td><td>Every unused app adds migration risk; Team Secrets encrypted fields block migration without a PII decision</td></tr>
+      <tr><td><span class="cat-tag">Inactive users</span></td><td>Accounts inactive &gt;180 days</td><td>Cloud licensing is per active user; clean the user base before cutover</td></tr>
+      <tr><td><span class="cat-tag">Archived projects</span></td><td>Projects with zero activity in 12+ months</td><td>Do not migrate projects nobody will use; confirm with stakeholders first</td></tr>
+      <tr><td><span class="cat-tag">Redundant workflows</span></td><td>Duplicate or near-duplicate workflows across teams</td><td>~200 workflows should reduce significantly through rationalization; portfolio reporting requires standardized statuses</td></tr>
+      <tr><td><span class="cat-tag">Released versions</span></td><td>All released versions older than current fiscal year</td><td>Creates noise in version picker; historical release data belongs in release notes</td></tr>
     </tbody>
   </table></div>
 </section>
 
-<!-- PART 2 — JSM -->
+<!-- PART 2 — CONFLUENCE -->
 <section id="part2">
-  <div class="section-header"><span class="section-num">Part 2</span><h2>Jira Service Management DC &rarr; Cloud</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">JSM has significant architectural differences between DC and Cloud. The Cloud version has substantially more native capability &mdash; particularly around virtual agents, conversational ticketing, and asset management. Many DC configurations built around email-driven workflows and manual SLA management can be replaced with Cloud-native automation. The most time-intensive dimension is Assets / Insight &mdash; plan it separately from the main migration.</p>
+  <div class="section-header"><span class="section-num">Part 2</span><h2>Confluence DC &rarr; Cloud</h2></div>
+  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Confluence Cloud has diverged from DC/Server in its editor, macro set, and integration model. The most impactful differences are: the Fabric editor replacing the legacy editor, deprecated macros that are hard migration blockers, and Cloud-native features (Databases, Smart Links, Automation) replacing what required plugins in DC. Deprecated macros must be resolved before migration tooling runs.</p>
 
-  <h3 class="subsection-title">2.1 Architecture Differences &mdash; JSM</h3>
-  <div class="table-wrap"><table>
-    <thead><tr><th>Concept</th><th>Data Center</th><th>Cloud</th></tr></thead>
-    <tbody>
-      <tr><td class="concept-cell">Virtual agent / chatbot</td><td>Not available natively; required third-party app</td><td>Native Virtual Agent in JSM Cloud (Premium/Enterprise)</td></tr>
-      <tr><td class="concept-cell">Asset management</td><td>Assets (formerly Insight) as a DC plugin</td><td>Assets is native in JSM Cloud; schema and import differ from DC Insight</td></tr>
-      <tr><td class="concept-cell">Customer portal</td><td>Service desk portal; limited branding</td><td>Help Center with richer branding, topic groups, and portal customisation</td></tr>
-      <tr><td class="concept-cell">Request types</td><td>Request type groups; forms via plugin or portal</td><td>Native forms with conditional logic (no plugin required)</td></tr>
-      <tr><td class="concept-cell">SLA definitions</td><td>SLA configurations with calendars</td><td>Same structure; Cloud adds SLA countdown widgets and native reporting</td></tr>
-      <tr><td class="concept-cell">Approvals</td><td>Basic approval step in workflows</td><td>Enhanced approvals: multi-level approvals, approval groups</td></tr>
-      <tr><td class="concept-cell">Email requests</td><td>Email handler with manual routing</td><td>Email integration with Automation for routing; dedicated email address per queue</td></tr>
-      <tr><td class="concept-cell">Incident management</td><td>Requires add-on (OpsGenie integration via plugin)</td><td>Native incident management in JSM Cloud Premium; OpsGenie integrated natively</td></tr>
-    </tbody>
-  </table></div>
-
-  <h3 class="subsection-title">2.2 Configuration Dimension Analysis &mdash; JSM</h3>
-  <div class="dimension-grid">
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Request Types</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Request type groups in portal; fields mapped from issue fields; limited conditional display</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud native forms with conditional field logic, rich text, attachment fields, date pickers natively</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate request types directly. Redesign using Cloud native forms — conditional logic, field descriptions, and help text are now native. Remove request types with zero submissions in 180 days.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">SLA Configurations</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">SLA definitions with start/stop/pause conditions and working calendars</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same structure in Cloud. Working calendars migrate. Reporting is richer in Cloud.</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate SLA definitions. Validate working calendar timezone settings — Cloud uses UTC-based definitions. Re-test SLA breach alerts post-migration.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">Working Calendars</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Custom working hours and holiday calendars per service desk</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; timezone representation differs</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate working calendars. Audit timezone configuration — DC stores in server timezone, Cloud uses explicit timezone. Re-validate SLA calculations post-migration.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">Queues</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Agent queues with JQL filters; manual queue ordering; queue groups</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; personal/starred queues are Cloud-only additions</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate queue definitions. Update JQL to use Cloud project keys. Add starred queues for high-priority agents — this is a Cloud-only best practice with no DC equivalent.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Customer Portal / Help Center</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Service desk portal with project-level branding; portal groups</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Help Center with global branding, topic groups, announcement banners, and featured portals</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Do not migrate portal config directly. Redesign Help Center layout using Cloud's richer branding options. Migrate topic groups. Remove portal groups with zero customers.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Email Integration</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Email handlers: create requests, add comments, resolve via email keywords</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Dedicated email addresses per service project; Cloud Automation for routing and keyword processing</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate email address assignments. Rebuild keyword-based routing and auto-resolution as Cloud Automation rules. Complex multi-project routing requires Automation with conditional logic.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-NATIVE">NATIVE</span>
-        <span class="dim-title">Automation Rules (JSM)</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">ScriptRunner listeners for SLA breach alerts, escalation routing, and approval triggers</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">JSM Cloud Automation with JSM-specific triggers: SLA breach, request type, queue entry, approval events</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove all ScriptRunner-based JSM automation. Rebuild as Cloud Automation with JSM triggers. SLA breach automation is native in Cloud — no scripting required.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Approvals</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Single-level workflow approval step; approver set via field or role</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud approvals support multi-level, group-based, and dynamic approver resolution. Native approval email/notification.</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate basic approval steps. Redesign multi-level approval flows using Cloud native capabilities — do not replicate complex approval chains using workflow hacks that were required in DC.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Assets / Insight (CMDB)</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Insight (DC plugin): object schemas, attribute types, object relationships, import rules, references in fields</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Assets native in JSM Cloud. Schema structure is similar but import configuration and API differ. DC data migrated via CSV export/import.</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Plan Assets migration separately. Export Insight object data as CSV. Re-create object schemas in Cloud Assets before importing. Object reference fields in requests must be re-linked after import. This is the most time-intensive dimension of the JSM migration.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-NATIVE">NATIVE</span>
-        <span class="dim-title">Incident Management</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Incident tracking via issue type; OpsGenie integration via marketplace plugin; manual escalation</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Native incident management in JSM Cloud Premium: incident timelines, stakeholder updates, on-call schedules, OpsGenie native integration</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate incident issue type and workflow. Connect OpsGenie (if in use) via native Cloud integration — remove the DC plugin. Enable incident management features in JSM Cloud Premium. Redesign escalation flows using native on-call and alert routing.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">Knowledge Base</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Confluence integration for KB articles; manual linking to portal</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Native Confluence Cloud integration; Knowledge Base auto-suggestion in portal; article feedback metrics</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate KB Confluence integration configuration. Cloud KB has enhanced article suggestion and deflection metrics — configure these after migration to reduce ticket volume.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">Permission Schemes (JSM)</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Service project permission schemes; customer role; agent role</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; customer portal access controlled separately from Jira permissions</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate permission schemes. Audit customer access settings — Cloud separates portal customers from licensed users more clearly than DC.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-RETHINK">RETHINK</span>
-        <span class="dim-title">Reports & Dashboards (JSM)</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Built-in SLA reports; custom JQL dashboard gadgets; third-party reporting apps</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud native JSM reports; Atlassian Analytics (Premium/Enterprise); third-party Cloud apps</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate JQL-based dashboard gadgets. Rebuild SLA reporting using Cloud native JSM reports. Evaluate Atlassian Analytics for advanced reporting — this replaces most third-party reporting apps.</p></div>
-        
-      </div>
-    </div></div>
-
-  <h3 class="subsection-title">2.3 DC Workarounds Now Native in Cloud &mdash; JSM</h3>
-  <div class="table-wrap"><table class="workaround-table">
-    <thead><tr><th>DC Workaround</th><th>What It Did</th><th>Cloud Native Feature</th><th>Migration Action</th></tr></thead>
-    <tbody>
-      <tr><td>ScriptRunner SLA breach email</td><td>Custom Groovy listener to send stakeholder email when SLA was breached</td><td>JSM Cloud Automation &mdash; SLA breach trigger with Send Email action</td><td><span class="action-tag">Remove &amp; Rebuild</span> &mdash; Create Cloud Automation rule with SLA Breached trigger.</td></tr>
-      <tr><td>Approval routing script</td><td>Groovy post-function to determine approver dynamically based on request data</td><td>Cloud native approvals with dynamic approver fields and approval groups</td><td><span class="action-tag">Remove &amp; Rebuild</span> &mdash; Configure native Cloud approval step with approver field or group.</td></tr>
-      <tr><td>Insight plugin for asset tracking</td><td>Third-party plugin to track configuration items linked to service requests</td><td>Assets is native in JSM Cloud (no plugin required)</td><td>Export Insight data to CSV. Re-import into Cloud Assets. Re-configure object reference fields.</td></tr>
-      <tr><td>OpsGenie plugin for incident escalation</td><td>Third-party plugin to create OpsGenie alerts from Jira incidents</td><td>OpsGenie is natively integrated in JSM Cloud Premium</td><td>Remove plugin. Connect OpsGenie via native Cloud integration under JSM settings.</td></tr>
-      <tr><td>Portal group landing page plugin</td><td>Custom portal landing page with routing to different service desks</td><td>Help Center with topic groups, featured portals, and global announcement banners</td><td>Remove plugin. Redesign using Help Center topic groups and portal arrangement.</td></tr>
-      <tr><td>Conditional form fields plugin</td><td>Show/hide request form fields based on user input</td><td>Cloud request forms have native conditional field logic</td><td>Remove plugin. Rebuild request type forms using Cloud conditional field logic.</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<!-- PART 3 — CONFLUENCE -->
-<section id="part3">
-  <div class="section-header"><span class="section-num">Part 3</span><h2>Confluence DC &rarr; Cloud</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:20px;max-width:780px;">Confluence Cloud has diverged significantly from DC/Server in its editor, macro set, and integration model. The most impactful differences are: the Fabric (Cloud) editor vs. the legacy editor, the macro library (many DC macros are deprecated or replaced), and the introduction of Confluence Databases and Smart Links as native features. Deprecated macros are a hard migration blocker &mdash; they must be resolved before migration tooling runs.</p>
-
-  <h3 class="subsection-title">3.1 Architecture Differences &mdash; Confluence</h3>
+  <h3 class="subsection-title">2.1 Architecture Differences &mdash; Confluence</h3>
   <div class="table-wrap"><table>
     <thead><tr><th>Concept</th><th>Data Center</th><th>Cloud</th></tr></thead>
     <tbody>
       <tr><td class="concept-cell">Editor</td><td>Legacy editor (Confluence Storage Format XML-based)</td><td>Fabric editor (rich, collaborative, new content model). Storage format is different.</td></tr>
       <tr><td class="concept-cell">Macros</td><td>~120 DC macros including many server-side macros</td><td>Subset of macros; many DC macros deprecated; Cloud-native features replace several macro categories</td></tr>
-      <tr><td class="concept-cell">Databases</td><td>Not available natively; workaround via tables or apps</td><td>Confluence Databases native in Cloud (replaces many table-macro workarounds)</td></tr>
+      <tr><td class="concept-cell">Databases</td><td>Not available natively; workaround via tables or apps</td><td>Confluence Databases native in Cloud</td></tr>
       <tr><td class="concept-cell">Smart links</td><td>Manual link pasting; preview via oEmbed plugin</td><td>Smart Links native: auto-preview for 100+ integrations with no plugin</td></tr>
       <tr><td class="concept-cell">User management</td><td>Local users, LDAP, Crowd</td><td>Atlassian Access / IdP (same as Jira Cloud)</td></tr>
       <tr><td class="concept-cell">Search</td><td>Lucene-based local search</td><td>Atlassian Intelligence search; semantic search in Cloud Premium</td></tr>
-      <tr><td class="concept-cell">Analytics</td><td>Third-party plugins or limited built-in</td><td>Native page analytics in Cloud; Atlassian Analytics for advanced usage</td></tr>
-      <tr><td class="concept-cell">Automation</td><td>ScriptRunner for Confluence; limited native automation</td><td>Confluence Cloud Automation (native) &mdash; page creation, archiving, labelling, template insertion</td></tr>
+      <tr><td class="concept-cell">Automation</td><td>ScriptRunner for Confluence; limited native automation</td><td>Confluence Cloud Automation (native)</td></tr>
       <tr><td class="concept-cell">Space permissions</td><td>Space-level permissions with anonymous access</td><td>Same in Cloud; anonymous access model differs (public links replace some use cases)</td></tr>
     </tbody>
   </table></div>
 
-  <h3 class="subsection-title">3.2 Configuration Dimension Analysis &mdash; Confluence</h3>
+  <h3 class="subsection-title">2.2 Configuration Dimension Analysis &mdash; Confluence</h3>
+  <p class="text-sm" style="margin-bottom:14px;">Click any dimension to expand the DC approach, Cloud equivalent, and migration recommendation.</p>
   <div class="dimension-grid">
     <div class="dimension-row">
       <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
@@ -907,10 +664,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Space-level permissions: view, add pages, add comments, add attachments, delete, admin — per user and group</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same permission model in Cloud; anonymous access works differently (public links preferred)</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Space-level permissions: view, add pages, add comments, add attachments, delete, admin — per user and group.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same permission model in Cloud; anonymous access works differently (public links preferred).</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate space permissions. Convert user-level grants to groups. Audit anonymous access spaces — Cloud uses shareable public links for external access rather than anonymous Confluence access.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate space permissions. Convert user-level grants to groups. Audit anonymous access spaces — Cloud uses shareable public links for external access.</p></div>
         
       </div>
     </div>
@@ -923,10 +680,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Space-level and global page templates; Blueprint templates</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Space-level and global page templates; Blueprint templates.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud with additional Fabric editor-native templates. DC templates using deprecated macros will not render correctly.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all templates. Templates using deprecated macros must be rebuilt in the Fabric editor. Remove templates with zero usage in 12 months. Migrate templates that use only supported macros.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all templates. Templates using deprecated macros must be rebuilt in the Fabric editor. Remove templates with zero usage in 12 months.</p></div>
         
       </div>
     </div>
@@ -939,8 +696,8 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">~120 DC macros including: Jira Issues, Table of Contents, Info/Warning, Include Page, Excerpt, Status, Roadmap, and many plugin macros</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud macro set is a subset plus Cloud-only macros. See macro compatibility reference below.</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">DC macro set including server-side plugin macros.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Cloud macro set is a subset. Many DC macros deprecated; Cloud-native features replace several macro categories.</div></div>
         </div>
         <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Run the Atlassian Cloud Migration Assistant — it identifies all macro usage and flags deprecated macros before migration. Do not migrate pages with unresolved deprecated macros without a remediation plan.</p></div>
         
@@ -955,8 +712,8 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Many DC macros built on server-side execution: Scaffold, Metadata, SQL for Confluence, RefinedWiki macros, etc.</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">No equivalent — these macros do not run in Cloud</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">DC macros built on server-side execution with no Cloud equivalent: Scaffold, Metadata, SQL for Confluence, custom plugin macros.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">No equivalent — these macros do not run in Cloud.</div></div>
         </div>
         <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Identify all pages using deprecated macros via the Cloud Migration Assistant. For each: determine if Cloud-native feature replaces it (Databases for table macros, Smart Links for embed macros). Pages with unresolvable macros must be manually reviewed before migration.</p></div>
         
@@ -971,7 +728,7 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Groovy scripts for: auto-labelling pages, bulk content operations, custom macros, event listeners</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Groovy scripts for: auto-labelling pages, bulk content operations, custom macros, event listeners.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Confluence Cloud Automation (native) replaces ~60% of use cases. Forge apps for custom macros.</div></div>
         </div>
         <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all Confluence ScriptRunner scripts. Rebuild auto-labelling and bulk operations as Cloud Automation rules. Custom macro scripts require Forge apps. Remove scripts with zero execution history.</p></div>
@@ -987,10 +744,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Spaces with page hierarchies; personal spaces; archived spaces; space categories</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; space archiving is more prominent; team spaces are a Cloud concept</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Spaces with page hierarchies; personal spaces; archived spaces; space categories.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; space archiving is more prominent; team spaces are a Cloud concept.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate space structure. Archive inactive spaces before migration rather than migrating then archiving. Remove personal spaces for inactive users. Confirm space key collisions do not exist (space keys are instance-unique in Cloud).</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Archive inactive spaces before migration rather than migrating then archiving. Remove personal spaces for inactive users. Confirm space key collisions do not exist.</p></div>
         
       </div>
     </div>
@@ -1003,10 +760,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Not available — workarounds used table macros, Airtable embeds, or database apps</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Confluence Databases native in Cloud: structured data with views, filters, and rollup fields</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Not available — workarounds used table macros, Airtable embeds, or database apps.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Confluence Databases native in Cloud: structured data with views, filters, and rollup fields.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Identify all pages using structured table macros, embedded spreadsheets, or database-style plugins. Rebuild as Confluence Databases post-migration. This is one of the most impactful Cloud improvements for operations and project tracking use cases.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Identify pages using structured table macros, embedded spreadsheets, or database-style plugins. Rebuild as Confluence Databases post-migration.</p></div>
         
       </div>
     </div>
@@ -1019,10 +776,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">oEmbed plugin for link previews; manual HTML macros for embeds; Gliffy for diagrams</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Smart Links native (100+ integrations); Confluence Whiteboards; Atlassian native diagram tools</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">oEmbed plugin for link previews; manual HTML macros for embeds.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Smart Links native (100+ integrations); Atlassian native diagram tools.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove oEmbed and HTML embed plugins. Smart Links activate automatically in Cloud for supported integrations. Migrate Gliffy diagrams — the Cloud Migration Assistant can convert Gliffy to Confluence native diagrams.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove oEmbed and HTML embed plugins. Smart Links activate automatically in Cloud for supported integrations.</p></div>
         
       </div>
     </div>
@@ -1035,10 +792,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Page-level restrictions: view and edit restrictions per user and group</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Page-level restrictions: view and edit restrictions per user and group.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. The Cloud Migration Assistant preserves page restrictions. Audit for user-level restrictions — convert to groups where possible.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate directly. Audit for user-level restrictions — convert to groups where possible.</p></div>
         
       </div>
     </div>
@@ -1051,10 +808,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">ScriptRunner event listeners; manual labelling; scheduled scripts for archiving and notifications</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Confluence Cloud Automation: page creation triggers, scheduled rules, label-based actions, archiving rules</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">ScriptRunner event listeners; manual labelling; scheduled scripts for archiving and notifications.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Confluence Cloud Automation: page creation triggers, scheduled rules, label-based actions, archiving rules.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove ScriptRunner Confluence scripts. Rebuild archiving, labelling, and notification rules as Cloud Automation. Cloud Automation is significantly more capable for Confluence content management than DC's script-based approach.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove ScriptRunner Confluence scripts. Rebuild archiving, labelling, and notification rules as Cloud Automation.</p></div>
         
       </div>
     </div>
@@ -1068,9 +825,9 @@ tbody tr:hover { background:#faf7f2; }
       <div class="dimension-body">
         <div class="dim-body-grid">
           <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Plugin-based integrations: Slack, Teams, GitHub, Jenkins, etc.</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Native integrations in Cloud: Slack, Teams, GitHub, Figma, and more. Atlassian Rovo for AI-assisted content.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Native integrations in Cloud: Slack, Teams, GitHub, Figma, and more.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all integrations. Most have native Cloud equivalents — configure fresh rather than migrate. Remove plugin-based integrations before migration — they will not function in Cloud. Re-configure native integrations post-migration.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Audit all integrations. Most have native Cloud equivalents — configure fresh rather than migrate. Remove plugin-based integrations before migration.</p></div>
         
       </div>
     </div>
@@ -1083,26 +840,10 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Page view counts (limited). Third-party analytics apps (Comala, Analytics for Confluence).</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Third-party analytics apps or limited built-in analytics.</div></div>
           <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Native page analytics in Cloud. Atlassian Analytics (Premium) for workspace-level reporting.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove third-party analytics apps. Configure native Cloud analytics post-migration. Atlassian Analytics provides engagement, usage, and content quality metrics with no plugin required.</p></div>
-        
-      </div>
-    </div>
-    <div class="dimension-row">
-      <div class="dimension-header" onclick="this.closest('.dimension-row').classList.toggle('open')">
-        <span class="disp-badge disp-MIGRATE">MIGRATE</span>
-        <span class="dim-title">Global Templates & Blueprints</span>
-        <span></span>
-        <span class="dim-chevron">&#9654;</span>
-      </div>
-      <div class="dimension-body">
-        <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Global templates available to all spaces; Blueprint templates with wizard-style creation</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Same in Cloud; Cloud Blueprint library includes new Fabric-native templates</div></div>
-        </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Migrate templates using supported macros only. Rebuild deprecated-macro templates in Fabric editor. Add Cloud-only templates (meeting notes, product requirements, retrospectives) as part of the migration.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Remove third-party analytics apps. Configure native Cloud analytics post-migration.</p></div>
         
       </div>
     </div>
@@ -1115,91 +856,55 @@ tbody tr:hover { background:#faf7f2; }
       </div>
       <div class="dimension-body">
         <div class="dim-body-grid">
-          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Local groups, LDAP groups, Confluence-specific groups</div></div>
-          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Atlassian Access org-level groups; IdP-synced groups via SCIM</div></div>
+          <div><div class="dim-col-label">DC Approach</div><div class="dim-col-content">Local groups, LDAP groups, Confluence-specific groups.</div></div>
+          <div><div class="dim-col-label">Cloud Equivalent</div><div class="dim-col-content">Atlassian Access org-level groups; IdP-synced groups via SCIM.</div></div>
         </div>
-        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Map DC Confluence groups to Cloud org-level groups before migration. User migration requires Atlassian Access setup with IdP. Do not attempt to migrate user credentials — Cloud users authenticate via IdP or Atlassian account.</p></div>
+        <div class="rec-box"><div class="rec-box-label">Recommendation</div><p>Map DC Confluence groups to Cloud org-level groups before migration. Do not attempt to migrate user credentials — Cloud users authenticate via IdP or Atlassian account.</p></div>
         
       </div>
     </div></div>
 
-  <h3 class="subsection-title">3.3 DC Workarounds Now Native in Cloud &mdash; Confluence</h3>
+  <h3 class="subsection-title">2.3 DC Workarounds Now Native in Cloud &mdash; Confluence</h3>
   <div class="table-wrap"><table class="workaround-table">
     <thead><tr><th>DC Workaround</th><th>What It Did</th><th>Cloud Native Feature</th><th>Migration Action</th></tr></thead>
     <tbody>
-      <tr><td>oEmbed / HTML embed plugin</td><td>Embed external content (videos, dashboards, docs) in Confluence pages</td><td>Smart Links &mdash; auto-preview for 100+ integrations natively</td><td>Remove plugin. Paste URLs in Cloud &mdash; Smart Links renders previews automatically.</td></tr>
-      <tr><td>Table macro + plugin for structured data</td><td>Track structured records (project status, assets, decisions) in Confluence tables</td><td>Confluence Databases &mdash; structured data with filtered views and rollups</td><td>Rebuild structured tables as Confluence Databases post-migration.</td></tr>
+      <tr><td>oEmbed / HTML embed plugin</td><td>Embed external content in Confluence pages</td><td>Smart Links &mdash; auto-preview for 100+ integrations natively</td><td>Remove plugin. Paste URLs in Cloud &mdash; Smart Links renders previews automatically.</td></tr>
+      <tr><td>Table macro + plugin for structured data</td><td>Track structured records in Confluence tables</td><td>Confluence Databases &mdash; structured data with filtered views and rollups</td><td>Rebuild structured tables as Confluence Databases post-migration.</td></tr>
       <tr><td>Scheduled archiving scripts (ScriptRunner)</td><td>Automatically archive pages not updated in X days</td><td>Confluence Cloud Automation &mdash; archive rule with last-updated condition</td><td>Remove script. Create Cloud Automation archiving rule.</td></tr>
       <tr><td>Auto-labelling scripts</td><td>Label pages based on space, template, or content rules</td><td>Confluence Cloud Automation &mdash; label action on page creation or scheduled trigger</td><td>Remove script. Rebuild as Cloud Automation rule.</td></tr>
-      <tr><td>Analytics plugin (Comala, etc.)</td><td>Page view counts, contributor reports, engagement metrics</td><td>Native page analytics in Confluence Cloud</td><td>Remove plugin. Enable native analytics in Cloud space settings.</td></tr>
-      <tr><td>Whiteboard/diagramming plugins</td><td>Visual diagramming and workshop tooling embedded in pages</td><td>Confluence Whiteboards native in Cloud (Premium)</td><td>Migrate Gliffy via Migration Assistant converter. Other tools: export and re-import.</td></tr>
+      <tr><td>Analytics plugin</td><td>Page view counts, contributor reports, engagement metrics</td><td>Native page analytics in Confluence Cloud</td><td>Remove plugin. Enable native analytics in Cloud space settings.</td></tr>
       <tr><td>Roadmap macro (Portfolio plugin)</td><td>Visual timeline/roadmap embedded in pages</td><td>Native Roadmap macro in Confluence Cloud</td><td>Replace DC roadmap plugin macro with Cloud native Roadmap macro.</td></tr>
-    </tbody>
-  </table></div>
-
-  <h3 class="subsection-title">3.4 Macro Compatibility Reference</h3>
-  <p class="text-sm" style="margin-bottom:12px;">Commonly used DC macros and their specific migration outcomes in Cloud. Use the Atlassian Cloud Migration Assistant for a complete audit of your instance.</p>
-  <div class="table-wrap"><table class="macro-table">
-    <thead><tr><th>DC Macro</th><th>Cloud Status</th><th>Migration Action</th></tr></thead>
-    <tbody>
-      <tr><td>Jira Issues</td><td><span class="status-ok">Supported</span></td><td>Migrates directly. Update JQL to use Cloud project keys post-migration.</td></tr>
-      <tr><td>Table of Contents</td><td><span class="status-ok">Supported</span></td><td>Migrates directly.</td></tr>
-      <tr><td>Info / Note / Warning / Tip</td><td><span class="status-ok">Supported</span></td><td>Migrates directly.</td></tr>
-      <tr><td>Include Page</td><td><span class="status-ok">Supported</span></td><td>Migrates. Validate that included pages exist in the target space.</td></tr>
-      <tr><td>Excerpt / Excerpt Include</td><td><span class="status-ok">Supported</span></td><td>Migrates directly.</td></tr>
-      <tr><td>Status</td><td><span class="status-ok">Supported</span></td><td>Migrates directly; status colours may render differently in Fabric editor.</td></tr>
-      <tr><td>Page Properties / Report</td><td><span class="status-part">Partial</span></td><td>Migrates. Page Properties Report has limitations in Cloud &mdash; evaluate Databases as replacement.</td></tr>
-      <tr><td>Roadmap</td><td><span class="status-part">Rebuild required</span></td><td>DC Roadmap plugin macro &rarr; Cloud native Roadmap macro. Rebuild required.</td></tr>
-      <tr><td>HTML Macro</td><td><span class="status-no">Not supported</span></td><td>Remove before migration. Rebuild with Smart Links or Forge app.</td></tr>
-      <tr><td>ScriptRunner macros</td><td><span class="status-no">Not supported</span></td><td>Remove. Rebuild as Forge app if functionality is required.</td></tr>
-      <tr><td>Gliffy Diagrams</td><td><span class="status-conv">Convertible</span></td><td>Migration Assistant can convert to Confluence native diagrams.</td></tr>
-      <tr><td>SQL for Confluence</td><td><span class="status-no">Not supported</span></td><td>Remove. Rebuild data display using Confluence Databases or Atlassian Analytics.</td></tr>
-      <tr><td>Metadata / Scaffolding</td><td><span class="status-no">Not supported</span></td><td>Remove. Rebuild structured data using Confluence Databases.</td></tr>
-      <tr><td>Comala Workflows</td><td><span class="status-no">Not supported</span></td><td>Remove. Rebuild content approval workflows using native Confluence page restrictions + Automation.</td></tr>
-      <tr><td>Refined Theme macros</td><td><span class="status-no">Not supported</span></td><td>Remove. Cloud theming is handled at the space and Help Center level.</td></tr>
     </tbody>
   </table></div>
 </section>
 
-<!-- PART 4 — BLUEPRINT -->
+<!-- PART 3 — BLUEPRINT -->
 <section id="blueprint">
-  <div class="section-header"><span class="section-num">Part 4</span><h2>Target Cloud Configuration Blueprint</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:24px;max-width:780px;">This blueprint defines the recommended Cloud configuration derived from the DC analysis. It is organised by product and serves as the specification document for the Cloud environment build-out before migration begins. This is not a summary &mdash; it is the authoritative target state. Every configuration decision below is derived from the cross-product analysis above.</p>
+  <div class="section-header"><span class="section-num">Part 3</span><h2>Target Cloud Configuration Blueprint</h2></div>
+  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:24px;max-width:780px;">This blueprint defines the recommended Cloud configuration derived from the DC analysis. It is the authoritative target state for Alkami&rsquo;s Cloud environment. Every configuration decision below is shaped by the specific challenges in Alkami&rsquo;s environment: scale across ~60 scrum teams, heavy automation dependency, PII handling requirements, and the need for portfolio-quality data from Day 1 in Cloud.</p>
 
-  <h3 class="subsection-title">4.1 Jira Software Cloud Blueprint</h3>
+  <h3 class="subsection-title">3.1 Jira Software Cloud Blueprint</h3>
   <div class="blueprint-grid">
-    <div class="blueprint-card"><div class="bc-label">Customisation model</div><div class="bc-value">Cloud Automation + Forge apps</div><div class="bc-note">No Groovy. All DC ScriptRunner rules rebuilt as Automation. Complex UI logic as Forge.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Workflow post-functions</div><div class="bc-value">Cloud Automation on transition trigger</div><div class="bc-note">Replaces all ScriptRunner post-functions. Test every transition automation rule before cutover.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Field behaviour (dynamic)</div><div class="bc-value">Field configuration + Automation for cascade</div><div class="bc-note">Behaviours replaced. Complex requirements may need Forge UI kit investment.</div></div>
-    <div class="blueprint-card"><div class="bc-label">User management</div><div class="bc-value">Atlassian Access + IdP (SAML/SCIM)</div><div class="bc-note">No local users. Set up before migration. All DC users mapped to cloud identities.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Permission scheme model</div><div class="bc-value">Group/role grants only &mdash; no user grants</div><div class="bc-note">User grants converted to groups. Single shared scheme per project type.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Boards</div><div class="bc-value">Standard Scrum/Kanban boards; no Rapid Views</div><div class="bc-note">Rapid Views rebuilt as standard boards. Filter references updated.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Advanced Roadmaps</div><div class="bc-value">Native in Jira Cloud Premium (if licensed)</div><div class="bc-note">Replaces Portfolio for Jira DC plugin. Hierarchy levels redefined for Cloud AR model.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Apps</div><div class="bc-value">Cloud Marketplace equivalents only</div><div class="bc-note">Every DC app replaced with Cloud equivalent or removed. No DC app runs in Cloud.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Automation</div><div class="bc-value">Cloud Automation (first-class feature)</div><div class="bc-note">Centralised Automation replaces: ScriptRunner, Behaviours, built-in DC automation.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Reporting</div><div class="bc-value">Native reports + Atlassian Analytics</div><div class="bc-note">Replaces third-party reporting apps. Analytics available in Premium/Enterprise.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Workflow model</div><div class="bc-value">Standardized shared workflows (minimal set)</div><div class="bc-note">~200 DC workflows rationalized to a governed shared set before migration. Divergent team workflows do not migrate.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Customisation model</div><div class="bc-value">Cloud Automation + Forge apps</div><div class="bc-note">No Groovy. All ScriptRunner rules rebuilt as Automation or Forge. ~1,000 rules audited; only active, deduplicated rules rebuild.</div></div>
+    <div class="blueprint-card"><div class="bc-label">PII / secrets handling</div><div class="bc-value">Forge app or architectural change (TBD)</div><div class="bc-note">Team Secrets has no Cloud equivalent. Decision required before migration: Forge app, external secrets management, or remove PII from Jira.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Field behaviour (dynamic)</div><div class="bc-value">Field configuration + Automation for cascade</div><div class="bc-note">Behaviours replaced. Complex requirements evaluated for Forge UI kit investment.</div></div>
+    <div class="blueprint-card"><div class="bc-label">User management</div><div class="bc-value">Atlassian Access + IdP (SAML/SCIM)</div><div class="bc-note">No local users. Set up before migration. DC users and acquired company users unified under one org.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Cloud consolidation</div><div class="bc-value">Single org &mdash; strategy TBD</div><div class="bc-note">Acquired company Cloud org consolidated with DC migration target. Consolidation strategy decision gates migration planning.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Permission scheme model</div><div class="bc-value">Group/role grants only &mdash; no user grants</div><div class="bc-note">User grants converted to groups. Consolidated to a minimal shared scheme set across ~60 teams.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Advanced Roadmaps</div><div class="bc-value">Native in Jira Cloud Premium</div><div class="bc-note">Plans rebuilt from scratch. Hierarchy, field, and workflow standardization in DC determines Cloud plan quality.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Automation governance</div><div class="bc-value">Centralized rule library &mdash; governed by admin</div><div class="bc-note">~1,000 DC rules replaced by a curated, governed rule set. One rule per use case; no team-specific duplicates.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Apps</div><div class="bc-value">Cloud Marketplace equivalents only</div><div class="bc-note">Every DC app replaced with Cloud equivalent or removed. Team Secrets requires explicit replacement decision.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Boards</div><div class="bc-value">Standard Scrum/Kanban &mdash; standardized config</div><div class="bc-note">Consistent board layout across ~60 teams for reliable sprint reporting and capacity tracking.</div></div>
+    <div class="blueprint-card"><div class="bc-label">Reporting</div><div class="bc-value">Advanced Roadmaps + Atlassian Analytics</div><div class="bc-note">Portfolio, capacity, and R&D investment reporting from Jira &mdash; not manual rollups. Requires standardized data first.</div></div>
   </div>
 
-  <h3 class="subsection-title" style="margin-top:28px;">4.2 Jira Service Management Cloud Blueprint</h3>
-  <div class="blueprint-grid">
-    <div class="blueprint-card"><div class="bc-label">Request forms</div><div class="bc-value">Cloud native forms with conditional logic</div><div class="bc-note">Replaces plugin-based conditional forms. Richer and no app dependency.</div></div>
-    <div class="blueprint-card"><div class="bc-label">SLA configuration</div><div class="bc-value">Migrated + re-validated post-migration</div><div class="bc-note">Timezones must be re-checked. SLA breach automation rebuilt in Cloud Automation.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Assets / CMDB</div><div class="bc-value">Native Assets (no Insight plugin)</div><div class="bc-note">Insight data migrated via CSV. Schema rebuilt in Cloud Assets before import.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Incident management</div><div class="bc-value">JSM Cloud Premium native incident management</div><div class="bc-note">Replaces OpsGenie plugin. On-call and escalation rebuilt in native incident flow.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Automation</div><div class="bc-value">JSM Cloud Automation (JSM-specific triggers)</div><div class="bc-note">All ScriptRunner JSM scripts rebuilt. SLA breach, approval, routing triggers native.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Customer portal</div><div class="bc-value">Help Center with topic groups</div><div class="bc-note">Replaces portal groups. Richer branding and deflection metrics available natively.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Knowledge base</div><div class="bc-value">Confluence Cloud KB integration</div><div class="bc-note">Same as DC; enhanced article suggestion and deflection analytics available.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Approvals</div><div class="bc-value">Native multi-level approvals</div><div class="bc-note">Approval chain workarounds replaced by Cloud native multi-level approval support.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Reporting</div><div class="bc-value">JSM native reports + Atlassian Analytics</div><div class="bc-note">Third-party reporting apps replaced by native JSM reports and Atlassian Analytics.</div></div>
-  </div>
-
-  <h3 class="subsection-title" style="margin-top:28px;">4.3 Confluence Cloud Blueprint</h3>
+  <h3 class="subsection-title" style="margin-top:28px;">3.2 Confluence Cloud Blueprint</h3>
   <div class="blueprint-grid">
     <div class="blueprint-card"><div class="bc-label">Editor</div><div class="bc-value">Fabric editor (Cloud native)</div><div class="bc-note">All content migrated to Fabric editor format. Deprecated macros resolved before migration.</div></div>
     <div class="blueprint-card"><div class="bc-label">Macro strategy</div><div class="bc-value">Supported macros only; unsupported removed</div><div class="bc-note">Run Cloud Migration Assistant. Resolve all deprecated macros before migration tooling runs.</div></div>
     <div class="blueprint-card"><div class="bc-label">Structured data</div><div class="bc-value">Confluence Databases</div><div class="bc-note">Replaces table macros, database plugins, and embedded spreadsheets.</div></div>
     <div class="blueprint-card"><div class="bc-label">Embeds / previews</div><div class="bc-value">Smart Links (native)</div><div class="bc-note">Replaces oEmbed plugin and HTML macro embeds. Paste URL &mdash; Smart Links renders preview.</div></div>
-    <div class="blueprint-card"><div class="bc-label">Diagrams</div><div class="bc-value">Confluence native diagrams (Gliffy converted)</div><div class="bc-note">Gliffy converted via Migration Assistant. Whiteboard available in Cloud Premium.</div></div>
     <div class="blueprint-card"><div class="bc-label">Automation</div><div class="bc-value">Confluence Cloud Automation</div><div class="bc-note">Replaces all ScriptRunner Confluence scripts: archiving, labelling, notifications.</div></div>
     <div class="blueprint-card"><div class="bc-label">Analytics</div><div class="bc-value">Native page analytics + Atlassian Analytics</div><div class="bc-note">Replaces third-party analytics plugins.</div></div>
     <div class="blueprint-card"><div class="bc-label">User management</div><div class="bc-value">Atlassian Access + IdP (shared with Jira)</div><div class="bc-note">Shared identity across products. No local Confluence users.</div></div>
@@ -1208,287 +913,43 @@ tbody tr:hover { background:#faf7f2; }
   </div>
 </section>
 
-<!-- PART 5 — REMEDIATION -->
-<section id="remediation">
-  <div class="section-header"><span class="section-num">Part 5</span><h2>Migration Readiness &amp; Remediation Plan</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:8px;max-width:780px;">Migration tasks are sequenced across four phases. Phase 1 (DC clean-up) must complete before migration tooling runs. Phase 2 (Cloud build-out) runs in parallel with Phase 1 where possible. The order is not flexible &mdash; each phase creates the preconditions the next requires. Attempting these out of sequence compounds risk rather than reducing it.</p>
-  <p style="font-size:13px;color:var(--fg-3);margin-bottom:24px;max-width:780px;">Environments that consolidate without stabilising dependencies first consistently produce more post-cutover incidents than the preparation work would have taken. Items within a phase that carry no inter-dependencies can run in parallel to compress the timeline. Nothing else should be accelerated.</p>
-
-  <div class="table-wrap" style="margin-bottom:28px;"><table>
-    <thead><tr><th>Phase</th><th>Timeframe</th><th>Theme</th><th>Gate Condition</th></tr></thead>
-    <tbody>
-      <tr><td><strong>1</strong></td><td>Weeks 1&ndash;4</td><td>DC Instance Clean-Up</td><td>Must complete before migration tooling assessment</td></tr>
-      <tr><td><strong>2</strong></td><td>Weeks 2&ndash;6</td><td>Cloud Environment Build-Out</td><td>Runs parallel to Phase 1; Atlassian Access must be configured first</td></tr>
-      <tr><td><strong>3</strong></td><td>Weeks 6&ndash;8</td><td>Migration Execution</td><td>Phases 1 and 2 fully complete; user acceptance tested in staging</td></tr>
-      <tr><td><strong>4</strong></td><td>Weeks 8&ndash;10</td><td>Post-Migration Validation</td><td>Go-live gating; DC decommission only after validation period</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="phase-block">
-    <div class="phase-header"><span class="phase-num">Phase 1</span><span class="phase-title">DC Instance Clean-Up &mdash; All Three Products</span><span class="phase-time">Weeks 1&ndash;4</span></div>
-    <div class="phase-gate"><strong>Gate:</strong> All items must complete before migration tooling runs.</div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--remove-bg);color:var(--remove-color);">P0</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M01</span>
-        <span class="rem-title">Audit and categorise all ScriptRunner scripts (Jira + Confluence)</span>
-      </div>
-      <p class="rem-desc">Scripts are the single biggest migration risk across all three products. Uncategorised scripts become dead code in Cloud or block migration tooling. This is the first task on Day 1.</p>
-      <ol class="rem-steps">
-        <li>Export full script inventory: Groovy scripts, workflow conditions, post-functions, validators, listeners, and Confluence scripts</li>
-        <li>For each script: classify as (a) replaceable by Cloud Automation, (b) requires Forge app, or (c) obsolete/unused</li>
-        <li>Mark obsolete scripts for removal &mdash; do not migrate any script to Cloud</li>
-        <li>Create a backlog of Automation rebuilds and Forge app requirements from classifications (a) and (b)</li>
-        <li>Prioritise Automation rebuilds that unblock workflow migration (post-functions and validators first)</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Jira/Confluence Admin + Developer</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>2&ndash;3 weeks</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Largest effort item &mdash; start on Day 1. M06 cannot begin until M01 inventory is complete.</div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--remove-bg);color:var(--remove-color);">P0</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M02</span>
-        <span class="rem-title">Resolve deprecated Confluence macros</span>
-      </div>
-      <p class="rem-desc">Pages with deprecated macros will render incorrectly or fail to migrate. This is a hard blocker &mdash; must be resolved before running migration tooling.</p>
-      <ol class="rem-steps">
-        <li>Run the Atlassian Cloud Migration Assistant to generate a full deprecated macro report</li>
-        <li>For each deprecated macro category: determine Cloud replacement (Database, Smart Link, Forge, or manual rebuild)</li>
-        <li>Prioritise pages with the highest view counts first &mdash; these are the most user-visible</li>
-        <li>Rebuild or remove deprecated macro instances. Re-run Migration Assistant to confirm zero deprecated macros remain</li>
-        <li>Archive pages with deprecated macros that have not been viewed in 12+ months instead of rebuilding them</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Confluence Admin + Content owners</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>1&ndash;2 weeks</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Cannot migrate pages with unresolved deprecated macros</div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--remove-bg);color:var(--remove-color);">P0</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M03</span>
-        <span class="rem-title">Set up Atlassian Access and IdP integration</span>
-      </div>
-      <p class="rem-desc">Cloud identity must be configured before any users can be migrated. All DC users must be mapped to Cloud identities. There is no migration path for DC local user passwords &mdash; this is not optional.</p>
-      <ol class="rem-steps">
-        <li>Configure Atlassian Access in the target Cloud org</li>
-        <li>Connect your IdP (Okta, Azure AD, Google Workspace, etc.) via SAML and SCIM</li>
-        <li>Sync user accounts from IdP &mdash; verify all DC users have a corresponding Cloud identity</li>
-        <li>Map DC account usernames to Cloud account email addresses (these may differ)</li>
-        <li>For users not in the IdP directory: create Atlassian accounts manually or deactivate in DC if inactive</li>
-        <li>Run a test login for at least one user per team before proceeding to Phase 3</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>IT/Identity team + Atlassian Admin</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>1&ndash;2 weeks</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Hard dependency &mdash; no users can migrate until this is complete</div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--rethink-bg);color:var(--rethink-color);">P1</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M04</span>
-        <span class="rem-title">Remove or archive inactive content and projects</span>
-      </div>
-      <p class="rem-desc">Every inactive item migrated adds cost (Cloud licensing is consumption-based), complexity, and search noise. Doing this work in DC is free. Doing it in Cloud after migration is not.</p>
-      <ol class="rem-steps">
-        <li>Jira: identify projects with zero issue activity in 12 months &mdash; get stakeholder sign-off to archive</li>
-        <li>Confluence: identify spaces with zero page activity in 12 months &mdash; archive before migration</li>
-        <li>Remove unused apps and plugins across all three products</li>
-        <li>Deactivate Jira and Confluence user accounts inactive for 180+ days</li>
-        <li>Remove custom fields with zero usage in 180 days from Jira</li>
-        <li>Archive released Jira versions older than the current fiscal year</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Atlassian Admin + Team leads</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>1 week</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Significantly reduces migration scope and Cloud licensing cost</div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--rethink-bg);color:var(--rethink-color);">P1</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M05</span>
-        <span class="rem-title">Migrate Assets / Insight data (JSM)</span>
-      </div>
-      <p class="rem-desc">Insight data cannot be migrated by standard tooling. It requires a separate CSV export and re-import into Cloud Assets. Object schemas must be rebuilt before data import. Plan this as a parallel workstream.</p>
-      <ol class="rem-steps">
-        <li>Export all Insight object schemas as JSON configuration</li>
-        <li>Export all object data as CSV per object type</li>
-        <li>Re-create object schemas in Cloud Assets before any data import</li>
-        <li>Import CSV data per object type &mdash; validate object counts match source</li>
-        <li>Re-configure object reference fields in JSM request types to point to Cloud Assets</li>
-        <li>Test at least 5 representative service requests end-to-end with Asset field lookups</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>JSM Admin + Developer</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>1&ndash;2 weeks</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Most time-intensive JSM dimension &mdash; plan separately from main migration</div>
-    </div>
-  </div>
-
-  <div class="phase-block">
-    <div class="phase-header"><span class="phase-num">Phase 2</span><span class="phase-title">Cloud Environment Build-Out</span><span class="phase-time">Weeks 2&ndash;6</span></div>
-    <div class="phase-gate"><strong>Gate:</strong> Runs parallel to Phase 1. Begin after Atlassian Access (M03) is configured.</div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--remove-bg);color:var(--remove-color);">P0</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M06</span>
-        <span class="rem-title">Rebuild ScriptRunner workflow logic as Cloud Automation</span>
-      </div>
-      <p class="rem-desc">All workflow post-functions, validators, and listeners must be rebuilt as Cloud Automation rules before workflows are migrated. This is the critical path item for Jira Software and JSM. Effort is determined entirely by M01 inventory.</p>
-      <ol class="rem-steps">
-        <li>Work through the categorised script backlog from M01</li>
-        <li>For each Automation rebuild: create the rule in Cloud Automation staging environment</li>
-        <li>Test each rule against representative issue scenarios &mdash; do not assume equivalence</li>
-        <li>For JSM: rebuild SLA breach alerts, approval routing, and escalation rules using JSM-specific Automation triggers</li>
-        <li>Document all rebuilt rules with their DC script equivalent for audit trail</li>
-        <li>Rules that cannot be rebuilt in Automation are escalated to Forge app development</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Developer + Atlassian Admin</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>2&ndash;4 weeks</span></div>
-        <div class="rem-meta-item"><label>Depends on</label><span>M01 inventory complete</span></div>
-      </div>
-      <div class="rem-warning">&#9888; Effort scales with script count &mdash; M01 inventory determines this duration</div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--rethink-bg);color:var(--rethink-color);">P1</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M07</span>
-        <span class="rem-title">Build Cloud Confluence Automation rules</span>
-      </div>
-      <p class="rem-desc">Confluence ScriptRunner scripts for archiving, labelling, and notifications must be rebuilt before migration. Lower complexity than Jira scripts &mdash; most Confluence scripts have direct Automation equivalents.</p>
-      <ol class="rem-steps">
-        <li>Rebuild auto-archiving rules using Confluence Cloud Automation scheduled triggers</li>
-        <li>Rebuild auto-labelling rules using Cloud Automation page creation and edit triggers</li>
-        <li>Rebuild notification rules using Cloud Automation send-notification actions</li>
-        <li>Test each rule in Cloud staging environment before migration runs</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Confluence Admin</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>3&ndash;5 days</span></div>
-      </div>
-    </div>
-
-    <div class="remediation-item">
-      <div class="rem-header">
-        <span class="rem-id"><span style="font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:3px;background:var(--rethink-bg);color:var(--rethink-color);">P1</span></span>
-        <span class="rem-id" style="color:var(--navy-700);font-size:12px;">M08</span>
-        <span class="rem-title">Configure Cloud apps and integrations</span>
-      </div>
-      <p class="rem-desc">DC apps do not run in Cloud. Each app must be replaced with its Cloud Marketplace equivalent, reconfigured from scratch, or removed. Budget time per app, not per product &mdash; reconfiguration effort varies widely.</p>
-      <ol class="rem-steps">
-        <li>For each DC app: locate the Cloud equivalent in the Atlassian Marketplace</li>
-        <li>Install and configure each Cloud app in the staging environment</li>
-        <li>For apps with no Cloud equivalent: evaluate native Cloud features as replacement; if insufficient, evaluate Forge app development</li>
-        <li>Configure native integrations (Slack, Teams, GitHub, Figma) &mdash; these replace plugin-based integrations</li>
-        <li>Validate each app against its DC feature set &mdash; Cloud versions often have different feature parity</li>
-      </ol>
-      <div class="rem-meta">
-        <div class="rem-meta-item"><label>Owner</label><span>Atlassian Admin + App owners</span></div>
-        <div class="rem-meta-item"><label>Duration</label><span>1&ndash;2 weeks</span></div>
-      </div>
-      <div class="rem-warning">&#9888; App reconfiguration effort varies widely &mdash; budget time per app, not per product</div>
-    </div>
-  </div>
-
-  <div class="phase-block">
-    <div class="phase-header"><span class="phase-num">Phase 3</span><span class="phase-title">Migration Execution</span><span class="phase-time">Weeks 6&ndash;8</span></div>
-    <div class="phase-gate"><strong>Gate:</strong> Phases 1 and 2 complete. Run a staging migration first. Do not decommission DC until Phase 4 validation period is complete.</div>
-    <div class="remediation-item">
-      <p class="rem-desc" style="margin-bottom:12px;">Use the Atlassian Cloud Migration Assistant for all three products. Run a staging migration first &mdash; validate configuration, automation, and user access before running production migration.</p>
-      <ul style="list-style:none;margin:0 0 14px 0;padding:0;">
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--orange);font-weight:700;flex-shrink:0;">&mdash;</span><span><strong>Jira Software:</strong> Run Cloud Migration Assistant. Migrate in project batches &mdash; do not migrate all projects simultaneously. Start with a low-risk pilot project.</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--orange);font-weight:700;flex-shrink:0;">&mdash;</span><span><strong>Jira Service Management:</strong> Migrate after Jira Software (shares user base). Assets data migrated separately via CSV &mdash; do not rely on Migration Assistant for Assets.</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--orange);font-weight:700;flex-shrink:0;">&mdash;</span><span><strong>Confluence:</strong> Migrate after deprecated macros are resolved. Space-by-space migration recommended for large instances. Validate Smart Links and Databases post-migration.</span></li>
-      </ul>
-      <ol class="rem-steps">
-        <li>Run Cloud Migration Assistant in assessment mode &mdash; review all warnings before executing migration</li>
-        <li>Execute staging migration &mdash; validate automation rules, permissions, and user access</li>
-        <li>Conduct user acceptance testing with one representative per team</li>
-        <li>Resolve any staging migration issues before production run</li>
-        <li>Execute production migration during a low-activity window (weekend, off-hours)</li>
-        <li>Validate all P0 automation rules are firing correctly within 24 hours of go-live</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="phase-block">
-    <div class="phase-header"><span class="phase-num">Phase 4</span><span class="phase-title">Post-Migration Validation</span><span class="phase-time">Weeks 8&ndash;10</span></div>
-    <div class="phase-gate"><strong>Gate:</strong> Validation period before DC decommission. Keep DC in read-only mode &mdash; do not allow new work in DC after go-live.</div>
-    <div class="remediation-item">
-      <ul style="list-style:none;margin:0;padding:0;">
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Run all rebuilt Automation rules against production data and confirm they fire as expected</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Validate all SLA configurations against live service requests in JSM &mdash; confirm breach alerts fire correctly</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Confirm all Confluence macros render correctly &mdash; spot-check top 50 most-viewed pages per space</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Validate Assets object references in JSM service requests are resolving to Cloud Assets correctly</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Confirm all users can authenticate via IdP &mdash; spot-check at least one user per team</span></li>
-        <li style="display:flex;gap:10px;font-size:13px;color:var(--fg-2);margin-bottom:8px;line-height:1.5;"><span style="color:var(--teal-600);font-weight:700;flex-shrink:0;">&mdash;</span><span>Monitor for a minimum of 2 weeks before decommissioning DC</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- PART 6 — BEST PRACTICES -->
+<!-- PART 4 — BEST PRACTICES -->
 <section id="bestpractice">
-  <div class="section-header"><span class="section-num">Part 6</span><h2>Cloud Best Practice Summary</h2></div>
-  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:24px;max-width:780px;">These best practices apply across all three products in the Cloud environment. They represent the &ldquo;do it right in Cloud&rdquo; principles that should guide configuration decisions during and after migration. These are not suggestions &mdash; they are the governance baseline the Alkami Technology Cloud environment should be built to from Day 1.</p>
+  <div class="section-header"><span class="section-num">Part 4</span><h2>Cloud Best Practice Summary</h2></div>
+  <p style="font-size:14px;line-height:1.7;color:var(--fg-2);margin-bottom:24px;max-width:780px;">These best practices apply across both products in Alkami&rsquo;s Cloud environment. They are the governance baseline the environment should be built to &mdash; not suggestions. At Alkami&rsquo;s scale (~60 scrum teams, ~200 workflows, ~1,000 automation rules), governance from Day 1 in Cloud is what separates a manageable environment from one that replicates DC debt at Cloud speed.</p>
 
   <div class="bp-section">
-    <h3>6.1 Cross-Product Principles</h3>
+    <h3>4.1 Cross-Product Principles</h3>
     <ul class="bp-list">
-      <li><strong>Identity first:</strong> Configure Atlassian Access and IdP integration before any migration work begins. All subsequent user migration depends on it.</li>
-      <li><strong>No Groovy:</strong> Cloud has no Groovy runtime. Every DC script must be categorised as Automation, Forge, or remove &mdash; before migration, not after.</li>
-      <li><strong>Automation over configuration:</strong> Cloud Automation is the primary mechanism for workflow logic, notifications, and cross-product events. Invest in Automation design before go-live.</li>
-      <li><strong>Group-based access:</strong> All permission grants, notification recipients, and role actors must use groups or roles. No individual user references &mdash; they are a maintenance liability and break with IdP sync.</li>
-      <li><strong>Remove before migrating:</strong> Everything unused, deprecated, or superseded should be removed from DC before migration tooling runs. Migrating technical debt to Cloud amplifies it.</li>
-      <li><strong>Native over plugins:</strong> Before installing any Cloud app, verify the use case is not already covered natively &mdash; Assets, Databases, Smart Links, Automation, Incident Management, and Analytics are all native in Cloud.</li>
+      <li><strong>Standardize before migrating:</strong> With ~200 custom workflows and ~1,000 automation rules, migrating as-is replicates the problem at Cloud scale. Rationalization in DC is what makes Cloud manageable.</li>
+      <li><strong>Identity first:</strong> Configure Atlassian Access and IdP integration before any migration work begins. DC users and acquired company users must resolve to a single org under a unified identity model before cutover.</li>
+      <li><strong>No Groovy:</strong> Cloud has no Groovy runtime. Every DC script must be categorised as Automation, Forge, or remove &mdash; before migration, not after. At Alkami&rsquo;s ScriptRunner volume, this is weeks of work.</li>
+      <li><strong>Team Secrets decision is a hard prerequisite:</strong> Fields using Team Secrets encrypted data cannot migrate until a replacement strategy is implemented. This decision blocks migration planning for any project using the plugin.</li>
+      <li><strong>Consolidation strategy before migration planning:</strong> The acquired company&rsquo;s Cloud org determines where DC migrates to. This is an architectural decision that gates everything else.</li>
+      <li><strong>Group-based access:</strong> All permission grants, notification recipients, and role actors must use groups or roles. No individual user references &mdash; they break with IdP sync and are a maintenance liability at scale.</li>
+      <li><strong>Native over plugins:</strong> Before installing any Cloud app, verify the use case is not already covered natively &mdash; Automation, Databases, Smart Links, and Analytics are all native in Cloud.</li>
     </ul>
   </div>
 
   <div class="bp-section">
-    <h3>6.2 Jira Software Cloud Best Practices</h3>
+    <h3>4.2 Jira Software Cloud Best Practices</h3>
     <ul class="bp-list">
-      <li>Use a single shared workflow per issue type across projects &mdash; divergent workflows at scale are the most common cause of reporting inconsistency in Cloud</li>
-      <li>Scope custom fields to project or issue-type context &mdash; global fields are an anti-pattern; they appear in all project field pickers across the org</li>
-      <li>Create per-team filter-based boards in consolidated projects &mdash; one board per team, not one board per project</li>
-      <li>Use Atlassian Analytics (Premium) for cross-project reporting instead of JQL-based dashboard gadgets for complex metrics</li>
-      <li>Standard hierarchy only (Epic &rarr; Story/Bug/Task &rarr; Sub-task) unless Advanced Roadmaps Premium is licensed</li>
+      <li>Use a single shared workflow per issue type across all ~60 scrum teams &mdash; divergent workflows are the most common cause of unreliable portfolio reporting</li>
+      <li>Scope custom fields to project or issue-type context &mdash; global fields are an anti-pattern; they appear in all project field pickers across the org and degrade portfolio plan accuracy</li>
+      <li>Centralize Automation rule management &mdash; one admin owns the rule library; teams request rules through a governed process rather than creating team-specific duplicates</li>
+      <li>Standard hierarchy only (Initiative &rarr; Epic &rarr; Story/Bug/Task &rarr; Sub-task) across all teams &mdash; consistent hierarchy is what makes quarterly planning and capacity tracking work in Advanced Roadmaps</li>
+      <li>Create per-team filter-based boards in consolidated projects &mdash; one board per team, not one project per team</li>
+      <li>Use Atlassian Analytics (Premium) for cross-team and portfolio reporting &mdash; Advanced Roadmaps for planning, Analytics for actuals</li>
     </ul>
   </div>
 
   <div class="bp-section">
-    <h3>6.3 Jira Service Management Cloud Best Practices</h3>
-    <ul class="bp-list">
-      <li>Use Cloud native forms with conditional logic for all request types &mdash; no plugin required</li>
-      <li>Define SLA calendars in explicit timezones (UTC-based) &mdash; DC timezone inheritance does not apply in Cloud</li>
-      <li>Enable article suggestion in Help Center Knowledge Base &mdash; Cloud deflection metrics show which articles are reducing ticket volume</li>
-      <li>Use starred/personal queues for agent prioritisation &mdash; this is a Cloud-only capability with no DC equivalent</li>
-      <li>Configure Assets object schemas before importing data &mdash; schema changes after import are painful</li>
-      <li>Use multi-level native approvals rather than workflow hacks for approval chains</li>
-    </ul>
-  </div>
-
-  <div class="bp-section">
-    <h3>6.4 Confluence Cloud Best Practices</h3>
+    <h3>4.3 Confluence Cloud Best Practices</h3>
     <ul class="bp-list">
       <li>Run the Cloud Migration Assistant before every migration attempt &mdash; macro compatibility and user mapping issues surface here, not during migration</li>
       <li>Use Confluence Databases for all structured data that previously lived in table macros or embedded spreadsheets</li>
       <li>Use Smart Links for all external content references &mdash; paste URL, Smart Links renders the preview</li>
-      <li>Archive spaces with zero activity before migration &mdash; archiving in DC is free; archiving 500 unused Cloud spaces is a project in itself</li>
+      <li>Archive spaces with zero activity before migration &mdash; archiving in DC is free; archiving unused Cloud spaces costs Cloud licensing headroom</li>
       <li>Rebuild templates in the Fabric editor before migration &mdash; templates with deprecated macros will not render correctly post-migration</li>
       <li>Enable native page analytics immediately post-migration &mdash; engagement data from Day 1 informs content quality decisions</li>
     </ul>
@@ -1497,16 +958,18 @@ tbody tr:hover { background:#faf7f2; }
 
 <!-- CLOSING -->
 <section id="closing" style="background:var(--navy-900);border-radius:var(--radius);padding:38px 40px 34px;margin-bottom:40px;color:#fff;position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-40px;bottom:-60px;width:280px;height:280px;
+    background:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'100,10 190,180 10,180\' fill=\'%2320649a\' opacity=\'0.13\'/%3E%3C/svg%3E') center/contain no-repeat;pointer-events:none;"></div>
   <div style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;">What success looks like</div>
-  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;margin-bottom:18px;max-width:600px;">After migration, Alkami Technology operates from a single, governed Cloud environment &mdash; built for the capabilities Cloud was designed to deliver.</h2>
+  <h2 style="font-size:22px;font-weight:700;letter-spacing:-0.03em;line-height:1.2;margin-bottom:18px;max-width:640px;">After migration, Alkami operates from a single, governed Cloud environment &mdash; with clean data, standardized process, and portfolio reporting that works.</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:26px;">
     <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">No more Groovy</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">All workflow logic lives in Cloud Automation &mdash; visible, testable, and maintainable without developer intervention for routine changes.</div></div>
-    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Identity is governed</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Atlassian Access + IdP means user provisioning and deprovisioning happens in one place. No orphaned accounts. No permission drift.</div></div>
-    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Plugins replaced by native capability</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Insight &rarr; Assets. ScriptRunner &rarr; Automation. Rapid Views &rarr; Standard boards. Each replacement is simpler, more capable, and lower maintenance.</div></div>
-    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Content that actually renders</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Deprecated macros resolved before cutover. Fabric editor for all content. Confluence Databases for structured data. Smart Links for everything else.</div></div>
+    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Identity is governed</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Atlassian Access + IdP unifies Alkami DC users and the acquired company&rsquo;s Cloud users under one org. No orphaned accounts. No permission drift.</div></div>
+    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Automation is centralized</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">~1,000 DC rules replaced by a governed, deduplicated Cloud Automation library. One rule per use case. One admin owns it.</div></div>
+    <div><div style="font-weight:600;font-size:13px;color:var(--yellow);margin-bottom:5px;">Portfolio reporting runs on real data</div><div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Standardized fields, workflows, and hierarchy across teams. Quarterly planning, capacity tracking, and R&amp;D investment reporting come directly from Jira instead of manual rollups.</div></div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,0.12);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-    <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:600px;margin:0;">DC didn&rsquo;t fail. It reached the natural end of a configuration model that Cloud has structurally replaced. This migration is not a repair &mdash; it&rsquo;s a deliberate transition to a platform built for how Alkami Technology works today.</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:620px;margin:0;">Alkami didn&rsquo;t build its DC environment wrong. It outgrew what was built. The standardization work required before migration is not a delay &mdash; it&rsquo;s what determines whether Cloud delivers on its promise or inherits DC&rsquo;s debt at a higher price tag.</p>
     <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);white-space:nowrap;">OMG Tech Partners</div>
   </div>
 </section>
@@ -1518,18 +981,19 @@ tbody tr:hover { background:#faf7f2; }
     <h3>Atlassian Migration Tooling</h3>
     <ul class="appendix-list">
       <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Cloud Migration Guide</strong> &mdash; official migration guidance and tooling documentation</span></li>
-      <li><span class="appendix-bullet">&mdash;</span><span><strong>Cloud Migration Assistant</strong> &mdash; analyses DC instance and guides migration execution</span></li>
-      <li><span class="appendix-bullet">&mdash;</span><span><strong>Jira Cloud Migration Assistant (Marketplace)</strong> &mdash; install on DC instance before migration begins</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Cloud Migration Assistant</strong> &mdash; analyses DC instance, flags deprecated macros and incompatible configurations, and guides migration execution</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Jira Cloud Migration Assistant (Marketplace)</strong> &mdash; install on DC instance before migration planning begins</span></li>
     </ul>
   </div>
   <div class="bp-section">
-    <h3>Product-Specific References</h3>
+    <h3>Product &amp; Feature References</h3>
     <ul class="appendix-list">
       <li><span class="appendix-bullet">&mdash;</span><span><strong>Jira Cloud Automation documentation</strong> &mdash; replaces ScriptRunner for most workflow automation</span></li>
-      <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Forge developer documentation</strong> &mdash; for custom macros and complex UI logic that cannot use Automation</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Forge developer documentation</strong> &mdash; for complex UI logic and custom features that cannot use Automation (including PII encryption replacement)</span></li>
       <li><span class="appendix-bullet">&mdash;</span><span><strong>Confluence Cloud Automation</strong> &mdash; replaces ScriptRunner for Confluence</span></li>
-      <li><span class="appendix-bullet">&mdash;</span><span><strong>Assets in JSM Cloud</strong> &mdash; replaces Insight DC plugin; native in JSM Cloud</span></li>
-      <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Access documentation</strong> &mdash; identity and org-level security for Cloud migration</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Access documentation</strong> &mdash; identity and org-level security; required before migration for user account mapping</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Advanced Roadmaps (Jira Cloud Premium)</strong> &mdash; portfolio management and quarterly planning; requires standardized hierarchy, fields, and workflows to function correctly</span></li>
+      <li><span class="appendix-bullet">&mdash;</span><span><strong>Atlassian Analytics</strong> &mdash; cross-team and portfolio-level reporting; available in Premium and Enterprise tiers</span></li>
     </ul>
   </div>
 </section>
@@ -1542,8 +1006,5 @@ tbody tr:hover { background:#faf7f2; }
   <span>omgtechpartners.com</span>
 </footer>
 
-<script>
-// All dimension rows use onclick on .dimension-header already
-</script>
 </body>
 </html>
