@@ -3,39 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OMG Delivery OS — Confluence</title>
+<title>OMG Delivery OS  -  Confluence</title>
 <style>
   :root {
-    --navy:    #1C2B3A;
-    --forest:  #2E5339;
-    --terra:   #C15F3C;
-    --salt:    #F4F1EC;
-    --saltdk:  #E8E3DB;
-    --mgray:   #5A6470;
-    --lgray:   #8A949E;
-    --gridln:  #CBD5E1;
-    --amber:   #B45309;
-    --amberlt: #FEF3C7;
-    --greenlt: #ECFDF5;
-    --slatelt: #F1F5F9;
-    --white:   #FFFFFF;
-    --redlt:   #FEF2F2;
-    --reddk:   #7F1D1D;
+    --ink: #172B4D;
+    --blue: #0C66E4;
+    --blue-dk: #0747A6;
+    --blue-soft: #E9F2FF;
+    --teal: #008DA6;
+    --green: #216E4E;
+    --gold: #946F00;
+    --purple: #5E4DB2;
+    --orange: #C25100;
+    --slate: #44546F;
+    --muted: #626F86;
+    --line: #DCDFE4;
+    --panel: #F7F8F9;
+    --white: #FFFFFF;
+    --shadow: 0 8px 22px rgba(23, 43, 77, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: -apple-system, "Segoe UI", Arial, sans-serif;
-    background: #F0F2F5;
-    color: var(--mgray);
-    font-size: 14px;
+    background: var(--panel);
+    color: var(--slate);
+    font-size: 15px;
     line-height: 1.6;
   }
 
   /* ── Confluence chrome ─────────────────────────────────── */
   .cf-chrome {
-    background: var(--navy);
+    background: linear-gradient(90deg, var(--ink), var(--blue-dk));
     height: 48px;
     display: flex;
     align-items: center;
@@ -50,19 +50,19 @@
   }
   .cf-chrome .breadcrumb {
     font-size: 12px;
-    color: #8A949E;
+    color: #B6C2CF;
   }
-  .cf-chrome .breadcrumb span { color: #CBD5E1; }
+  .cf-chrome .breadcrumb span { color: #FFFFFF; }
 
   .cf-body {
-    max-width: 980px;
+    width: min(96vw, 1480px);
     margin: 0 auto;
     padding: 32px 24px 80px;
   }
 
   /* ── Page header ───────────────────────────────────────── */
   .page-header {
-    background: var(--navy);
+    background: linear-gradient(135deg, var(--ink), var(--blue-dk));
     border-radius: 6px;
     padding: 32px 36px;
     margin-bottom: 32px;
@@ -74,12 +74,12 @@
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 5px;
-    background: var(--terra);
+    background: var(--blue);
   }
   .page-header .eyebrow {
     font-size: 11px;
     font-weight: 700;
-    color: var(--terra);
+    color: var(--blue-dk);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -92,8 +92,8 @@
     letter-spacing: -0.3px;
   }
   .page-header .subtitle {
-    font-size: 14px;
-    color: #8A949E;
+    font-size: 15px;
+    color: #B6C2CF;
     margin-bottom: 20px;
   }
   .page-header .meta {
@@ -102,12 +102,12 @@
     flex-wrap: wrap;
   }
   .meta-pill {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 20px;
     padding: 4px 12px;
     font-size: 11.5px;
-    color: #CBD5E1;
+    color: #E9F2FF;
   }
 
   /* ── Section ───────────────────────────────────────────── */
@@ -122,7 +122,7 @@
     margin-bottom: 14px;
   }
   .section-num {
-    background: var(--terra);
+    background: var(--blue);
     color: white;
     font-size: 10px;
     font-weight: 700;
@@ -134,7 +134,7 @@
   .section-label h2 {
     font-size: 16px;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--ink);
     letter-spacing: -0.2px;
   }
 
@@ -147,12 +147,12 @@
   }
   .purpose-card p {
     font-size: 14.5px;
-    color: var(--navy);
+    color: var(--ink);
     line-height: 1.7;
     margin-bottom: 12px;
   }
   .purpose-card p:last-child { margin-bottom: 0; }
-  .purpose-card strong { color: var(--terra); font-weight: 600; }
+  .purpose-card strong { color: var(--blue-dk); font-weight: 600; }
 
   /* ── Principles grid ───────────────────────────────────── */
   .principles-grid {
@@ -162,7 +162,7 @@
   }
   .principle-card {
     background: white;
-    border: 1px solid var(--gridln);
+    border: 1px solid var(--line);
     border-radius: 6px;
     padding: 16px 18px;
   }
@@ -173,12 +173,12 @@
   .principle-card h4 {
     font-size: 13px;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--ink);
     margin-bottom: 6px;
   }
   .principle-card p {
     font-size: 12.5px;
-    color: var(--mgray);
+    color: var(--slate);
     line-height: 1.55;
   }
 
@@ -219,17 +219,17 @@
     line-height: 1.45;
   }
   .pillar-card ul li::before {
-    content: '— ';
+    content: ' -  ';
     color: rgba(255,255,255,0.35);
   }
-  .p1 { background: var(--navy); }
-  .p2 { background: #1E3A5F; }
-  .p3 { background: var(--forest); }
-  .p4 { background: #2A4A38; }
-  .p5 { background: var(--terra); }
-  .p6 { background: #A85230; }
-  .p7 { background: var(--amber); }
-  .p8 { background: #8A6420; }
+  .p1 { background: var(--ink); }
+  .p2 { background: var(--blue-dk); }
+  .p3 { background: var(--green); }
+  .p4 { background: var(--teal); }
+  .p5 { background: var(--purple); }
+  .p6 { background: var(--orange); }
+  .p7 { background: var(--gold); }
+  .p8 { background: #334563; }
 
   /* ── Lifecycle ─────────────────────────────────────────── */
   .lifecycle-flow {
@@ -246,12 +246,12 @@
     position: relative;
   }
   .lc-stage:not(:last-child)::after {
-    content: '▶';
+    content: '›';
     position: absolute;
     right: -9px;
     top: 20px;
     font-size: 10px;
-    color: var(--terra);
+    color: var(--blue-dk);
     z-index: 2;
   }
   .lc-header {
@@ -267,8 +267,8 @@
   }
   .lc-body {
     width: 100%;
-    background: var(--slatelt);
-    border: 1px solid var(--gridln);
+    background: var(--panel);
+    border: 1px solid var(--line);
     border-top: none;
     border-radius: 0 0 4px 4px;
     padding: 10px 8px;
@@ -276,14 +276,14 @@
   }
   .lc-body p {
     font-size: 11px;
-    color: var(--mgray);
+    color: var(--slate);
     line-height: 1.45;
   }
   .lc-tool {
     display: inline-block;
     margin-top: 6px;
-    background: var(--navy);
-    color: var(--saltdk);
+    background: var(--ink);
+    color: var(--white);
     font-size: 10px;
     padding: 2px 7px;
     border-radius: 3px;
@@ -297,10 +297,10 @@
     background: white;
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid var(--gridln);
+    border: 1px solid var(--line);
   }
   .cf-table th {
-    background: var(--navy);
+    background: var(--ink);
     color: white;
     font-size: 11px;
     font-weight: 700;
@@ -311,13 +311,13 @@
   }
   .cf-table td {
     padding: 10px 14px;
-    border-bottom: 1px solid var(--gridln);
-    color: var(--mgray);
+    border-bottom: 1px solid var(--line);
+    color: var(--slate);
     vertical-align: top;
     line-height: 1.5;
   }
   .cf-table tr:last-child td { border-bottom: none; }
-  .cf-table tr:nth-child(even) td { background: var(--slatelt); }
+  .cf-table tr:nth-child(even) td { background: var(--panel); }
   .cf-table .tag {
     display: inline-block;
     padding: 2px 8px;
@@ -339,7 +339,7 @@
   }
   .lv-card {
     background: white;
-    border: 1px solid var(--gridln);
+    border: 1px solid var(--line);
     border-radius: 6px;
     overflow: hidden;
   }
@@ -356,11 +356,11 @@
   }
   .lv-body p {
     font-size: 12.5px;
-    color: var(--mgray);
+    color: var(--slate);
     margin-bottom: 4px;
     line-height: 1.5;
   }
-  .lv-body p strong { color: var(--navy); }
+  .lv-body p strong { color: var(--ink); }
 
   /* ── Build priorities ──────────────────────────────────── */
   .priority-list {
@@ -370,7 +370,7 @@
   }
   .priority-item {
     background: white;
-    border: 1px solid var(--gridln);
+    border: 1px solid var(--line);
     border-radius: 6px;
     padding: 12px 16px;
     display: flex;
@@ -378,7 +378,7 @@
     gap: 14px;
   }
   .priority-item .p-num {
-    background: var(--terra);
+    background: var(--blue);
     color: white;
     font-size: 11px;
     font-weight: 700;
@@ -394,17 +394,17 @@
   .priority-item .p-content h4 {
     font-size: 13.5px;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--ink);
     margin-bottom: 3px;
   }
   .priority-item .p-content p {
     font-size: 12.5px;
-    color: var(--mgray);
+    color: var(--slate);
   }
 
   /* ── Arhaus first use case ─────────────────────────────── */
   .arhaus-banner {
-    background: var(--navy);
+    background: var(--ink);
     border-radius: 6px 6px 0 0;
     padding: 14px 20px;
     display: flex;
@@ -412,7 +412,7 @@
     gap: 12px;
   }
   .arhaus-badge {
-    background: var(--terra);
+    background: var(--blue);
     color: white;
     font-size: 10px;
     font-weight: 700;
@@ -428,7 +428,7 @@
   }
   .arhaus-body {
     background: white;
-    border: 1px solid var(--gridln);
+    border: 1px solid var(--line);
     border-top: none;
     border-radius: 0 0 6px 6px;
     padding: 20px;
@@ -445,12 +445,12 @@
     position: relative;
   }
   .step-item:not(:last-child)::after {
-    content: '→';
+    content: '->';
     position: absolute;
     right: -8px;
     top: 12px;
-    color: var(--terra);
-    font-size: 14px;
+    color: var(--blue-dk);
+    font-size: 15px;
   }
   .step-item .step-dot {
     width: 36px;
@@ -466,31 +466,31 @@
   }
   .step-item p {
     font-size: 11.5px;
-    color: var(--mgray);
+    color: var(--slate);
     line-height: 1.4;
   }
   .step-item .step-label {
     font-size: 11px;
     font-weight: 700;
-    color: var(--navy);
+    color: var(--ink);
     margin-bottom: 3px;
   }
 
   /* ── Info panel ────────────────────────────────────────── */
   .info-panel {
-    background: var(--slatelt);
-    border: 1px solid var(--gridln);
+    background: var(--panel);
+    border: 1px solid var(--line);
     border-radius: 6px;
     padding: 14px 18px;
     font-size: 12.5px;
-    color: var(--mgray);
+    color: var(--slate);
     margin-top: 14px;
   }
-  .info-panel strong { color: var(--navy); }
+  .info-panel strong { color: var(--ink); }
 
   /* ── Closing bar ───────────────────────────────────────── */
   .closing-bar {
-    background: var(--navy);
+    background: var(--ink);
     border-radius: 6px;
     padding: 20px 28px;
     display: flex;
@@ -499,13 +499,13 @@
     margin-top: 36px;
   }
   .closing-bar p {
-    font-size: 14px;
-    color: var(--saltdk);
+    font-size: 15px;
+    color: var(--white);
     font-style: italic;
   }
   .closing-bar span {
     font-size: 12px;
-    color: var(--lgray);
+    color: #B6C2CF;
   }
 
   /* ── Divider ───────────────────────────────────────────── */
@@ -539,11 +539,11 @@
   <div class="page-header">
     <div class="eyebrow">Internal Operating System</div>
     <h1>OMG Delivery OS</h1>
-    <div class="subtitle">How we run the business — from first conversation to long-term client success</div>
+    <div class="subtitle">How we run the business  -  from first conversation to long-term client success</div>
     <div class="meta">
       <span class="meta-pill">🏗 Status: Active Build</span>
-      <span class="meta-pill">📅 Last updated: May 2026</span>
-      <span class="meta-pill">👤 Owner: Olivia Gallo</span>
+      <span class="meta-pill">📅 Last updated: Monday, May 11, 2026</span>
+      <span class="meta-pill">👤 Owner: Executive Operations</span>
       <span class="meta-pill">🔒 Internal · Confidential</span>
     </div>
   </div>
@@ -555,8 +555,8 @@
       <h2>Purpose</h2>
     </div>
     <div class="purpose-card">
-      <p>OMG Delivery OS is the operating system for running a high-quality Atlassian consulting practice — from the first client conversation through delivery, expansion, and renewal.</p>
-      <p>It gives the team <strong>a single source of truth</strong> for how work gets done, how clients are managed, and how the business performs — without adding bureaucracy or slowing down delivery.</p>
+      <p>OMG Delivery OS is the operating system for running a high-quality Atlassian consulting practice  -  from the first client conversation through delivery, expansion, and renewal.</p>
+      <p>It gives the team <strong>a single source of truth</strong> for how work gets done, how clients are managed, and how the business performs  -  without adding bureaucracy or slowing down delivery.</p>
       <p>The goal is simple: <strong>less heroics, more repeatability.</strong> Every client should get the same quality of experience. Every engagement should produce data that makes the next one better.</p>
     </div>
   </div>
@@ -593,12 +593,12 @@
       <div class="principle-card">
         <div class="icon">📊</div>
         <h4>Margin is a lagging indicator</h4>
-        <p>By the time margin suffers, something upstream broke. We track hours, scope, and rhythm weekly — not at close.</p>
+        <p>By the time margin suffers, something upstream broke. We track hours, scope, and rhythm weekly  -  not at close.</p>
       </div>
       <div class="principle-card">
         <div class="icon">⚡</div>
         <h4>Speed through structure</h4>
-        <p>Structure doesn't slow delivery down — ambiguity does. Clear gates, clear owners, and clear outputs compress timelines.</p>
+        <p>Structure doesn't slow delivery down  -  ambiguity does. Clear gates, clear owners, and clear outputs compress timelines.</p>
       </div>
     </div>
   </div>
@@ -678,7 +678,7 @@
         <ul>
           <li>Estimated vs actual hours</li>
           <li>Gross margin per project</li>
-          <li>Cycle time SOW → launch</li>
+          <li>Cycle time SOW -> launch</li>
           <li>Scope change frequency</li>
         </ul>
       </div>
@@ -766,38 +766,38 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong>Attract → Qualify</strong></td>
-          <td>Gabe (Sales)</td>
+          <td><strong>Attract -> Qualify</strong></td>
+          <td>Growth Lead</td>
           <td>Qualified opportunity in HubSpot</td>
           <td>Discovery call completed, fit confirmed</td>
         </tr>
         <tr>
-          <td><strong>Qualify → Propose</strong></td>
-          <td>Gabe + Olivia</td>
+          <td><strong>Qualify -> Propose</strong></td>
+          <td>Growth Lead + Executive Sponsor</td>
           <td>Signed SOW, estimate approved</td>
           <td>SOW signed by both parties</td>
         </tr>
         <tr>
-          <td><strong>Propose → Kick Off</strong></td>
+          <td><strong>Propose -> Kick Off</strong></td>
           <td>Delivery Lead</td>
           <td>Kickoff deck, charter, access confirmed</td>
           <td>Kickoff call complete, charter approved</td>
         </tr>
         <tr>
-          <td><strong>Kick Off → Deliver</strong></td>
+          <td><strong>Kick Off -> Deliver</strong></td>
           <td>Delivery Lead</td>
           <td>Blueprint signed, build begins</td>
           <td>Blueprint approved in writing</td>
         </tr>
         <tr>
-          <td><strong>Deliver → Close</strong></td>
+          <td><strong>Deliver -> Close</strong></td>
           <td>Delivery Lead</td>
           <td>UAT sign-off, final docs, retro</td>
           <td>Customer written acceptance</td>
         </tr>
         <tr>
-          <td><strong>Close → Expand</strong></td>
-          <td>Olivia + Gabe</td>
+          <td><strong>Close -> Expand</strong></td>
+          <td>Executive Sponsor + Growth Lead</td>
           <td>Expansion opportunity logged in HubSpot</td>
           <td>Post-launch check-in scheduled</td>
         </tr>
@@ -815,34 +815,34 @@
     </div>
     <div class="lv-grid">
       <div class="lv-card">
-        <div class="lv-header" style="background:var(--navy)">📊 What Olivia Sees Weekly</div>
+        <div class="lv-header" style="background:var(--navy)">📊 What Leadership Sees Weekly</div>
         <div class="lv-body">
-          <p><strong>Pipeline health</strong> — deals by stage, estimated close</p>
-          <p><strong>Delivery status</strong> — active projects, current phase, any blockers</p>
-          <p><strong>Hours vs estimate</strong> — per project, per workstream</p>
-          <p><strong>Margin outlook</strong> — flagged if any project exceeds 10% variance</p>
-          <p><strong>Escalations</strong> — anything requiring principal involvement</p>
+          <p><strong>Pipeline health</strong>  -  deals by stage, estimated close</p>
+          <p><strong>Delivery status</strong>  -  active projects, current phase, any blockers</p>
+          <p><strong>Hours vs estimate</strong>  -  per project, per workstream</p>
+          <p><strong>Margin outlook</strong>  -  flagged if any project exceeds 10% variance</p>
+          <p><strong>Escalations</strong>  -  anything requiring principal involvement</p>
         </div>
       </div>
       <div class="lv-card">
         <div class="lv-header" style="background:var(--forest)">✅ What Delivery Leads Own</div>
         <div class="lv-body">
-          <p><strong>Execution</strong> — kickoff through close, no gaps</p>
-          <p><strong>Schedule + scope</strong> — updated weekly, escalated promptly</p>
-          <p><strong>Client communication</strong> — status, decisions, risks</p>
-          <p><strong>Change control</strong> — nothing absorbed silently</p>
-          <p><strong>Margin visibility</strong> — hours in Tempo from day one</p>
+          <p><strong>Execution</strong>  -  kickoff through close, no gaps</p>
+          <p><strong>Schedule + scope</strong>  -  updated weekly, escalated promptly</p>
+          <p><strong>Client communication</strong>  -  status, decisions, risks</p>
+          <p><strong>Change control</strong>  -  nothing absorbed silently</p>
+          <p><strong>Margin visibility</strong>  -  hours in Tempo from day one</p>
         </div>
       </div>
       <div class="lv-card">
         <div class="lv-header" style="background:var(--terra)">📈 What We Measure</div>
         <div class="lv-body">
-          <p><strong>Est. vs actual hours</strong> — by stage</p>
-          <p><strong>Gross margin</strong> — per project</p>
-          <p><strong>Cycle time</strong> — SOW → launch</p>
-          <p><strong>Scope change events</strong> — frequency and reason</p>
-          <p><strong>Customer wait time</strong> — schedule days lost to client delays</p>
-          <p><strong>Rework hours</strong> — signals estimate or scope issues</p>
+          <p><strong>Est. vs actual hours</strong>  -  by stage</p>
+          <p><strong>Gross margin</strong>  -  per project</p>
+          <p><strong>Cycle time</strong>  -  SOW -> launch</p>
+          <p><strong>Scope change events</strong>  -  frequency and reason</p>
+          <p><strong>Customer wait time</strong>  -  schedule days lost to client delays</p>
+          <p><strong>Rework hours</strong>  -  signals estimate or scope issues</p>
         </div>
       </div>
     </div>
@@ -860,14 +860,14 @@
       <div class="priority-item">
         <div class="p-num">1</div>
         <div class="p-content">
-          <h4>Delivery model — live on Arhaus <span class="tag tag-live" style="margin-left:8px">Live</span></h4>
+          <h4>Delivery model  -  live on Arhaus <span class="tag tag-live" style="margin-left:8px">Live</span></h4>
           <p>9-stage delivery model with stage gates, Tempo tracking, and weekly margin visibility in production on the Arhaus engagement. Data from this project will validate the model and inform fixed-fee pricing on future deals.</p>
         </div>
       </div>
       <div class="priority-item">
         <div class="p-num">2</div>
         <div class="p-content">
-          <h4>HubSpot pipeline → delivery handoff <span class="tag tag-now" style="margin-left:8px">Now</span></h4>
+          <h4>HubSpot pipeline -> delivery handoff <span class="tag tag-now" style="margin-left:8px">Now</span></h4>
           <p>Clean deal stages in HubSpot that mirror the customer lifecycle. Automatic task creation when a deal reaches "SOW Signed" to trigger the delivery lead kickoff checklist.</p>
         </div>
       </div>
@@ -913,12 +913,12 @@
 
     <div class="arhaus-banner">
       <span class="arhaus-badge">Reference Engagement</span>
-      <h3>Arhaus — Enterprise Jira + JSM Implementation</h3>
+      <h3>Reference Engagement - Enterprise Jira + JSM Implementation</h3>
     </div>
     <div class="arhaus-body">
 
       <p style="font-size:13.5px; color:var(--mgray); margin-bottom:20px; line-height:1.6;">
-        Arhaus is the first live test of the OMG Delivery OS. The engagement covers Phase 1 (Jira PPM) and Phase 2 (JSM/ITSM) across a $175–200K T&amp;M engagement signed April 27, 2026. The goal is not just to deliver well — it's to produce the data and validated process that makes every future engagement faster and more profitable.
+        Arhaus is the first live test of the OMG Delivery OS. The engagement covers Phase 1 (Jira PPM) and Phase 2 (JSM/ITSM) across a a multi-phase Jira and JSM implementation. The goal is not just to deliver well  -  it's to produce the data and validated process that makes every future engagement faster and more profitable.
       </p>
 
       <div class="step-flow">
@@ -966,33 +966,33 @@
           <tr>
             <td>9-stage delivery model with stage gates</td>
             <td>Whether gates reduce rework and scope creep vs. prior engagements</td>
-            <td>Delivery playbook — validated model</td>
+            <td>Delivery playbook  -  validated model</td>
           </tr>
           <tr>
             <td>Tempo tracking from day one</td>
             <td>Estimated vs actual hours by stage and workstream</td>
-            <td>Estimation library — first real data set</td>
+            <td>Estimation library  -  first real data set</td>
           </tr>
           <tr>
             <td>Weekly delivery lead status cadence</td>
             <td>How much leadership time is actually needed per week</td>
-            <td>Leadership dashboard — recurring format</td>
+            <td>Leadership dashboard  -  recurring format</td>
           </tr>
           <tr>
             <td>Change order discipline</td>
             <td>How often scope changes occur and the avg. incremental hours</td>
-            <td>Future SOW scoping — more accurate inclusions</td>
+            <td>Future SOW scoping  -  more accurate inclusions</td>
           </tr>
           <tr>
             <td>Margin review at retro</td>
             <td>Gross margin at project close, before and after adjustments</td>
-            <td>Fixed-fee pricing confidence — future proposals</td>
+            <td>Fixed-fee pricing confidence  -  future proposals</td>
           </tr>
         </tbody>
       </table>
 
       <div class="info-panel">
-        <strong>Why Arhaus first?</strong> The engagement is scoped, signed, and live — making it the ideal environment to run the full model without added risk. Every process we validate here gets encoded into the OS for the next engagement.
+        <strong>Why use a live reference engagement?</strong> The engagement is scoped, signed, and active - making it the ideal environment to run the full model without added risk. Every process validated here gets encoded into the OS for the next engagement.
       </div>
     </div>
   </div>
@@ -1000,7 +1000,7 @@
   <!-- CLOSING -->
   <div class="closing-bar">
     <p>"The system should do the remembering so the team can do the work."</p>
-    <span>OMG Delivery OS · Internal · May 2026</span>
+    <span>OMG Delivery OS · Internal · Monday, May 11, 2026</span>
   </div>
 
 </div>
